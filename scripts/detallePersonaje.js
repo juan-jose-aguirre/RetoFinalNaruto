@@ -11,7 +11,7 @@ function getData(done) {
         });
 }
 
-let img = document.getElementById("img")
+
 
 idDetails = window.location.href
 idDetails = new URL(idDetails).searchParams.get("id")
@@ -23,32 +23,72 @@ getData(datos => {
     console.log(events);
     let tarjeta = events.filter(events => events.id == idDetails)
     tarjeta.forEach(events => {
-        img.innerHTML = `<img id="imgs" src="${events.images[0]}" class="card-img-top" alt="${events.name}">`
+        let img = document.getElementById("img")
         let name = document.getElementById("name").innerHTML = `${events.name}`
-        let jutsu = document.getElementById("jutsu").innerHTML = `${events.jutsu}`
-        let affiliation = document.getElementById("affiliation").innerHTML = `${events.personal.affiliation}`
-        let sex = document.getElementById("sex").innerHTML = `${events.personal.sex}`
-        let clan = document.getElementById("clan").innerHTML = ` ${events.personal.clan} `
-        let status = document.getElementById("status").innerHTML = ` ${events.personal.status} `
-        let estimate = document.getElementById("estimate")
-        let assistance = document.getElementById("assistance")
-        let price = document.getElementById("price").innerHTML = `${events.price}`
-        if (events.assistance != null || events.assistance != undefined) {
+        let jutsu = document.getElementById("jutsu")
+        let affiliation = document.getElementById("affiliation")
+        let sex = document.getElementById("sex")
+        let clan = document.getElementById("clan")
+        let status = document.getElementById("status")
 
-            assistance.innerHTML = `Assistance:<small class="text-body-secondary"> ${events.assistance} </small> `
-            estimate.style.display = "none";
 
+        // img
+        if (events.images !== undefined && events.images.length > 0) {
+            img.innerHTML = `<img id="imgs" src="${events.images[0]}" class="card-img-top" alt="${events.name}">`
+            
+            
         } else {
-            estimate.innerHTML = `Estimate:<small class="text-body-secondary"> ${events.estimate} </small> `
-            assistance.style.display = "none";
-
+            img.style.display = "none";
         }
+
+        // jutsu
+        if (events.jutsu !== undefined && events.jutsu.length > 0) {
+            jutsu.innerHTML = `Jutsu: <ul class="text-body-secondary">${events.jutsu}</ul>`;
+           
+        } else {
+            jutsu.style.display = "none";
+        }
+        
+        // Afiliación
+        if (events.personal.affiliation !== undefined) {
+            affiliation.innerHTML = `Afiliación: <small class="text-body-secondary">${events.personal.affiliation}</small>`;
+        } else {
+            affiliation.style.display = "none";
+        }
+
+        // Sexo
+        if (events.personal.sex !== undefined) {
+            sex.innerHTML = `Sexo: <small class="text-body-secondary">${events.personal.sex}</small>`;
+        } else {
+            sex.style.display = "none";
+        }
+
+        // Clan
+        if (events.personal.clan !== undefined) {
+            clan.innerHTML = `Clan: <small class="text-body-secondary">${events.personal.clan}</small>`;
+        } else {
+            clan.style.display = "none";
+        }
+
+        // Status
+        if (events.personal.status !== undefined) {
+            status.innerHTML = `Status: <small class="text-body-secondary">${events.personal.status}</small>`;
+        } else {
+            status.style.display = "none";
+        }
+
+
+
+
+
+
+
     })
 
- 
+
 
     console.log(idDetails);
     console.log(tarjeta);
 
-    
+
 })
