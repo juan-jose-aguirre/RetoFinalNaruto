@@ -23,13 +23,13 @@ getData(datos => {
     console.log(events);
     let tarjeta = events.filter(events => events.id == idDetails)
     tarjeta.forEach(events => {
-        img.innerHTML = `<img id="img" src="${events.images[0]}" class="img-fluid rounded-start" alt="${events.name}">`
+        img.innerHTML = `<img id="imgs" src="${events.images[0]}" class="card-img-top" alt="${events.name}">`
         let name = document.getElementById("name").innerHTML = `${events.name}`
-        let description = document.getElementById("description").innerHTML = `${events.description}`
-        let date = document.getElementById("date").innerHTML = `${events.date}`
-        let category = document.getElementById("category").innerHTML = `${events.category}`
-        let place = document.getElementById("place").innerHTML = `${events.place}`
-        let capacity = document.getElementById("capacity").innerHTML = `Capacity:<small class="text-body-secondary"> ${events.capacity} </small> `
+        let jutsu = document.getElementById("jutsu").innerHTML = `${events.jutsu}`
+        let affiliation = document.getElementById("affiliation").innerHTML = `${events.personal.affiliation}`
+        let sex = document.getElementById("sex").innerHTML = `${events.personal.sex}`
+        let clan = document.getElementById("clan").innerHTML = ` ${events.personal.clan} `
+        let status = document.getElementById("status").innerHTML = ` ${events.personal.status} `
         let estimate = document.getElementById("estimate")
         let assistance = document.getElementById("assistance")
         let price = document.getElementById("price").innerHTML = `${events.price}`
