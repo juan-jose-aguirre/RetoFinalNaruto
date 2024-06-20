@@ -1,5 +1,11 @@
 body{
     font-family: "Roboto";
+    a{
+        color: #F67F1E;
+    }
+    .barra{
+        background-color: #274E72;
+    }
 }
 .img-github{
     width: 5dvh;
