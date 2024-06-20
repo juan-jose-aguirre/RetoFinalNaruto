@@ -1,4 +1,44 @@
+body{
+    font-family: "Roboto";
+    a{
+        color: #F67F1E;
+    }
+    .barra{
+        background-color: #274E72;
+    }
+}
 .img-github{
     width: 5dvh;
 }
-gi
+main{
+    background-color: #5590e9;
+    .carrusel{
+        height: 60vh;
+        /* border: 4px solid blue; */
+        img{
+            /* border: 4px solid red; */
+            height:  60vh;
+        }
+    }
+    .tarjeta{
+        img{
+            height: 25dvh;
+        }
+    }
+    .introduccion{
+        
+    }
+}
+
+@media screen and (min-width: 0px) and (max-width: 600px) {
+    main{
+        .carrusel{
+            height: 35dvh;
+            /* border: 4px solid blue; */
+            img{
+                /* border: 4px solid red; */
+                height:  35dvh;
+            }
+        }
+    }
+  }
