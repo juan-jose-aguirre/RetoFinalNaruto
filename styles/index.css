@@ -18,6 +18,16 @@
 body{
     background-color: #5590e9;
     font-family: "Roboto";
+    header{
+        .navegadores{
+            a{
+                &:hover{
+                    filter: drop-shadow(1px 1px 1px #F57B18);
+                    border-radius: 100%;
+                }
+            }
+        }
+    }
     a{
         color: #F67F1E;
     }
@@ -59,9 +69,6 @@ main{
         img{
             height: 25dvh;
         }
-    }
-    .introduccion{
-        
     }
 }
 
