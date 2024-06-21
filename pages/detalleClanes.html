@@ -58,36 +58,31 @@
         </nav>
     </header>
     <main id="containerDetails">
-        <div class="d-flex flex-column align-items-center flex-md-row flex-md-wrap justify-content-md-center">
+        <div class="d-flex flex-column align-items-center text-center">
             <div class="card tarjeta m-3 shadow" style="width: 18rem">
-                <img src="/assets/clansCard.webp" class="card-img-top object-fit-contain" alt="..." />
+                <img :src="clans.image || '/assets/clansCard.webp'" class="card-img-top object-fit-contain"
+                    alt="Village Image" />
                 <div class="card-body d-flex flex-column align-items-center">
-                    <h5 class="card-title">Nombre Clan</h5>
+                    <img class=" h-25 mb-3 img-fluid" src="/assets/tituloClanDetalle.png" alt="">
+                    <h5 class="card-title">{{clans.name }}</h5>
                 </div>
             </div>
-
         </div>
-        <div class="w-100 d-flex flex-column align-items-center text-center">
-
-            <img class="w-50 img-fluid my-4 justify-content-center" src="/assets/tituloPersonajes.png" alt="">
+        <div class="d-flex flex-column align-items-center text-center">
+            <img class=" w-25 img-fluid my-4" src="/assets/tituloPersonajes.png" alt="">
         </div>
-        <div v-for="element in clans" class="d-flex flex-column align-items-center flex-md-row flex-md-wrap justify-content-md-center">
-            <div class="card tarjeta m-3 shadow" style="width: 18rem">
-                <img src="/assets/charactersCard.webp" class="card-img-top object-fit-contain" alt="..." />
-                <div  class="card-body d-flex flex-column align-items-center">
-                    <h5 class="card-title">{{element.name}}</h5>
-                    <a href="/pages/detalleClanes.html" class="btn btn-primary">See more..</a>
+        <div class="d-flex flex-column align-items-center flex-md-row flex-md-wrap justify-content-md-center">
+            <div v-for="element in clans.characters" :key="element.id" class="card tarjeta m-3 shadow"
+                style="width: 18rem">
+                <img :src="element.images" class="card-img-top object-fit-contain" alt="Character Image" />
+                <div class="card-body d-flex flex-column align-items-center">
+                    <h5 class="card-title">{{element.name }}</h5>
+                    <a :href="'/detallePersonaje.html?id=' + element.id" class="btn btn-primary">See more...</a>
                 </div>
             </div>
-
         </div>
-
 
     </main>
-
-
-
-
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="/scripts/detalleClanes.js"></script>
