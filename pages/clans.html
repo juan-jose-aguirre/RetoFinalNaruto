@@ -85,7 +85,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(element, index) in clans" :key="element.id"
+            <tr v-for="(element, index) in filterClans" :key="element.id"
               :class="index % 2 === 0 ? 'table-primary' : 'table-light'">
               <td class="align-middle text-center p-0 w-25">
                 <img :src="shield[index % shield.length].imagen" class="rounded img-fluid image my-4"
