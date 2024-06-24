@@ -16,7 +16,7 @@
         rel="stylesheet" />
     <!-- Fin fuente de letra -->
     <link rel="shortcut icon" href="/assets/favicon.webp" type="image/x-icon" />
-    <link rel="stylesheet" href="/styles/index.css" />
+    <link rel="stylesheet" href="/styles/clans.css" />
     <title>Naruto Proyect</title>
 </head>
 
@@ -78,7 +78,7 @@
     <main id="containerDetails">
         <div class="d-flex flex-column align-items-center text-center">
             <div class="card tarjeta m-3 shadow" style="width: 18rem">
-                <img :src="clans.image || '/assets/clansCard.webp'" class="card-img-top object-fit-contain"
+                <img :src="shield.imagen || '/assets/clansCard.webp'" class="card-img-top object-fit-contain"
                     alt="Village Image" />
                 <div class="card-body d-flex flex-column align-items-center">
                     <img class=" h-25 mb-3 img-fluid" src="/assets/tituloClanDetalle.png" alt="">
@@ -92,9 +92,16 @@
         <div class="d-flex flex-column align-items-center flex-md-row flex-md-wrap justify-content-md-center">
             <div v-for="element in clans.characters" :key="element.id" class="card tarjeta m-3 shadow"
                 style="width: 18rem">
-                <img :src="element.images" class="card-img-top object-fit-contain" alt="Character Image" />
+                <img :src="element.images || '/assets/clansCard.webp'" class="card-img-top object-fit-contain" alt="Character Image" />
                 <div class="card-body d-flex flex-column align-items-center">
-                    <h5 class="card-title">{{element.name }}</h5>
+                    <h3 class="card-title text-center">{{element.name }}</h3>
+                    <h5>Affiliation:</h5>
+                    <p v-if="Array.isArray(element.personal.affiliation)" class="card-title text-center">
+                      {{ element.personal.affiliation.join(", ") }}
+                    </p>
+                    <p v-else class="card-title text-center">
+                      {{ element.personal.affiliation }}
+                    </p>
                     <a :href="'detallePersonaje.html?id='+element.id" class="btn btn-primary">Más información</a>
                 </div>
             </div>
