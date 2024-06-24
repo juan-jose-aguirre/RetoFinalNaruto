@@ -1,11 +1,18 @@
-#header {
-    background-color: rgb(29, 28, 28) !important;
+.navbar-nav {
+    border-radius: 10px !important;
+    padding-left: 10px;
+    
+}
+.navbar-nav:hover {
+    background-color: rgba(19, 18, 18, 0.6) !important;
+    
+    border-radius: 10px !important;
+    padding-left: 10px;
     
 }
 
 #logoHeader {
-    height: 75px;
-}
+    height: 80px;}
 
 .navbar-nav {
     display: flex;
@@ -13,14 +20,15 @@
 }
 
 .nav-link {
-    color: rgb(224, 124, 30) !important;
+    color: rgb(0, 0, 0) !important;
+    font-weight: 500;
     display: flex;
     align-items: center;
     height: 100%;
 }
 
 .nav-link:hover {
-    color: rgb(243, 231, 219) !important;
+    color: rgb(255, 131, 8) !important;
 
 }
 
@@ -38,12 +46,22 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('https://wallpapercave.com/wp/wp5845448.jpg') no-repeat center center fixed;
+    background: url('https://wallpapercave.com/wp/wp7237677.jpg') no-repeat center center fixed;
     background-size: cover;
-    opacity: 0.5; /* Ajusta este valor para cambiar la opacidad */
+    opacity: 0.4; /* Ajusta este valor para cambiar la opacidad */
     z-index: -1; /* Asegúrate de que esta capa esté detrás del contenido */
 }
 
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(163, 131, 121, 0.4); /* Capa de color semitransparente */
+    z-index: -1; 
+}
 
 main{
 
