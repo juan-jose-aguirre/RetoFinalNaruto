@@ -24,21 +24,21 @@ const { createApp } = Vue
 const karaPage = createApp({
 
     data() {
-
         return {
             kara: [],
-            akatsuki:[]
-
+            akatsuki:[],
+            textoBuscar:"",
+            categoriaSeleccionada:[],
         }
     },
-    created() {
 
+    created() {
         this.getData(urlKara)
         this.getData(urlAkatsuki)
-
+        this.categoria = this
     },
-    methods: {
 
+    methods: {
         getData(url) {
             fetch(url)
                 .then(response => response.json())
@@ -47,6 +47,7 @@ const karaPage = createApp({
                     if (url.includes("kara")) {
                         this.kara = data.kara;
                         console.log(this.kara);
+
                     } 
                     
                      else if (url.includes("akatsuki")) {
