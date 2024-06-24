@@ -16,7 +16,7 @@
         rel="stylesheet" />
     <!-- Fin fuente de letra -->
     <link rel="shortcut icon" href="/assets/favicon.webp" type="image/x-icon" />
-    <link rel="stylesheet" href="/styles/index.css" />
+    <link rel="stylesheet" href="/styles/clans.css" />
     <title>Clanes</title>
 </head>
 
@@ -100,7 +100,7 @@
                     <tbody>
                         <tr v-for="(element, index) in clans" :key="element.id" :class="index % 2 === 0 ? 'table-primary' : 'table-light'">
                             <td class="align-middle text-center p-0 w-25">
-                                <img :src="shield[index % shield.length].imagen" class="rounded img-fluid imageClans" alt="Imagen del Clan">
+                                <img :src="shield[index % shield.length].imagen" class="rounded img-fluid image my-4" alt="Imagen del Clan">
                             </td>
                             <td class="align-middle text-center">{{ element.name }}</td>
                             <td class="align-middle text-center">{{ element.characters.length }} Members</td>
