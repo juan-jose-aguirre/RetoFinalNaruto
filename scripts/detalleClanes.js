@@ -73,7 +73,7 @@ const clansDetails = createApp({
     data() {
         return {
             clans: {},
-            shield: logos
+            shield: logos,
         }
     },
     created() {
