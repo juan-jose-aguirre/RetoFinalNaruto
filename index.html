@@ -15,23 +15,23 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700&display=swap"
       rel="stylesheet"
     />
     <!-- Fin fuente de letra -->
     <link rel="shortcut icon" href="/assets/favicon.webp" type="image/x-icon" />
-    <link rel="stylesheet" href="/styles/index.css" />
+    <link rel="stylesheet" href="/styles/test.css" />
     <title>Naruto Proyect</title>
   </head>
   <body>
     <header class="sticky-top">
       <nav class="navbar navbar-expand-sm barra">
-        <div class="container-fluid w-100">
-          <a class="navbar-brand w-25" href="#"
+        <div class="container-fluid w-100" id='narutoLogo'>
+          <a  class="navbar-brand w-25" href="#"
             ><img
-              src="/assets/Naruto-Proyect-19-6-2024.png"
+              src="assets/NARUTO-6-20-2024.png"
               class="mw-100"
-              alt=""
+              alt="Naruto Logo"
           /></a>
           <button
             class="navbar-toggler"
@@ -51,9 +51,7 @@
                   <a class="nav-link text-white" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-white" href="/pages/characters.html"
-                    >Characters</a
-                  >
+                  <a class="nav-link text-white" href="/pages/characters.html">Characters</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link text-white" href="/pages/clans.html">Clans</a>
@@ -68,15 +66,9 @@
                   <a class="nav-link text-white" href="/pages/statistics.html">Statistics</a>
                 </li>
                 <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    href="https://github.com/juan-jose-aguirre/RetoFinalNaruto"
-                    target="_blank"
-                    ><img
-                      class="rounded-circle img-github"
-                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR27kaHyBN4-iwj7H4pMmnE7kaC720Y-PYzKQ&s"
-                      alt=""
-                  /></a>
+                  <a class="nav-link" href="https://github.com/juan-jose-aguirre/RetoFinalNaruto" target="_blank">
+                    <img class="rounded-circle img-github" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR27kaHyBN4-iwj7H4pMmnE7kaC720Y-PYzKQ&s" alt="GitHub" />
+                  </a>
                 </li>
               </ul>
             </div>
@@ -85,122 +77,90 @@
       </nav>
     </header>
     <main class="container-fluid">
-      <div
-        id="carouselExampleInterval"
-        class="carousel slide carousel-fade carrusel"
-        data-bs-ride="carousel"
-      >
+      <div id="carouselExampleInterval" class="carousel slide carousel-fade carrusel" data-bs-ride="carousel">
         <div class="carousel-inner">
-          <div class="carousel-item active" data-bs-interval="1000">
+          <div class="carousel-item active" data-bs-interval="4000">
             <img
-              src="/assets/banner1.webp"
+              src="https://naruto-official.com/anime/header_bg_pc.webp"
               class="d-block w-100 object-fit-cover rounded"
               alt="..."
             />
           </div>
-          <div class="carousel-item" data-bs-interval="1000">
+          <div class="carousel-item" data-bs-interval="4000">
             <img
-              src="/assets/banner2.webp"
+              src="https://i.pinimg.com/originals/1c/91/19/1c91190e8d085bcc5f128ba0ba4be317.jpg"
               class="d-block w-100 object-fit-cover rounded"
               alt="..."
             />
           </div>
-          <div class="carousel-item" data-bs-interval="1000">
+          <div class="carousel-item" data-bs-interval="4000">
             <img
-              src="/assets/banner3.webp"
+              src="
+              https://pbs.twimg.com/media/EJGsy5NXkAAa-oQ.jpg:large"
               class="d-block w-100 object-fit-cover rounded"
               alt="..."
             />
           </div>
         </div>
-        <button
-          class="carousel-control-prev"
-          type="button"
-          data-bs-target="#carouselExampleInterval"
-          data-bs-slide="prev"
-        >
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
         </button>
-        <button
-          class="carousel-control-next"
-          type="button"
-          data-bs-target="#carouselExampleInterval"
-          data-bs-slide="next"
-        >
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
       </div>
 
-      <section
-        class="d-flex flex-column align-items-center text-center"
-      > <div class="w-100">
-        <img class="w-50 efecto-show" src="/assets/welcome-19-6-2024.webp" alt="WelcomeToNarutoProyect" />
+      <section class="d-flex flex-column align-items-center text-center mt-4">
+        <div class="w-100 mb-4 text-center">
+          <h2 class="centered-text">Welcome to the World of Naruto!</h2>
+          <div class="image-container">
+              <img class="w-50 efecto-show" src="assets/divisor.png" alt="WelcomeToNarutoProyect" />
+          </div>
       </div>
-        <p class="fw-bold w-75">
-          Naruto takes place in a universe full of hidden <a href="/pages/villages.html">villages</a>, where <a href="/pages/characters.html">ninjas</a>
-          live and train to protect their home and maintain peace. Each village
-          is home to diverse <a href="/pages/clans.html">clans</a>, each with unique skills and techniques
-          passed down through generations.
+      
+        <p class="fw-bold w-75" id="textoHome">
+
+          Step into the world of Naruto, where hidden <a href="/pages/villages.html">villages</a> are home to powerful <a href="/pages/characters.html">ninjas</a> and legendary <a href="/pages/clans.html">clans</a>. Discover the fascinating characters that make up this rich universe,
+           each with their own unique abilities and stories. Explore the lore, engage in epic adventures,
+           and immerse yourself in the captivating saga of Naruto. Your journey in this incredible world begins now!
         </p>
-        <p class="fw-bold w-50">
-          This page has been developed to give you an overview of the Naruto
-          universe, using data and resources obtained through the <a href="https://narutodb.xyz/">Naruto DB</a> API.
-        </p>
+       
       </section>
-      <section class="text-center mt-3">
-        <h2>¡Explora!</h2>
-        <div
-          class="d-flex flex-column align-items-center flex-md-row flex-md-wrap justify-content-md-center"
-        >
-          <div class="card tarjeta m-3 shadow efecto-show" style="width: 18rem">
-            <img
-              src="/assets/villagesCard.webp"
-              class="card-img-top object-fit-cover"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title">Villages</h5>
-              <a href="/pages/villages.html" class="btn btn-primary"
-                >See more..</a
-              >
+<h1 class="d-flex flex-column align-items-center container-fluid" id="explore">Explore!</h1>
+      <section class="banner-section">
+        
+        <a href="/pages/villages.html" class="banner-link">
+            <div class="banner-item" style="background-image: url('https://wallpapercave.com/wp/wp5845448.jpg');">
+                <span class="banner-text">Villages</span>
             </div>
-          </div>
-          <div class="card tarjeta m-3 shadow efecto-show" style="width: 18rem">
-            <img
-              src="/assets/clansCard.webp"
-              class="card-img-top object-fit-contain"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title">Clans</h5>
-              <a href="/pages/clans.html" class="btn btn-primary">See more..</a>
+        </a>
+        <a href="/pages/clans.html" class="banner-link">
+            <div class="banner-item" style="background-image: url('https://15ff0fa691.cbaul-cdnwnd.com/c5e2911f1db15a923b5e1935e5561472/200000279-ef616ef61a/Cl-3Fs.PNG.jpeg?ph=15ff0fa691');">
+                <span class="banner-text">Clans</span>
             </div>
-          </div>
-          <div class="card tarjeta m-3 shadow efecto-show" style="width: 18rem">
-            <img
-              src="/assets/charactersCard.webp"
-              class="card-img-top object-fit-cover"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title">Characters</h5>
-              <a href="/pages/characters.html" class="btn btn-primary"
-                >See more..</a
-              >
+        </a>
+        <a href="/pages/characters.html" class="banner-link">
+            <div class="banner-item" style="background-image: url('https://i.pinimg.com/736x/1c/91/19/1c91190e8d085bcc5f128ba0ba4be317.jpg');">
+                <span class="banner-text">Characters</span>
             </div>
-          </div>
-        </div>
-      </section>
+        </a>
+        
+    </section>
+    <p class="d-flex flex-column align-items-center container-fluid mt-3">
+      This page has been developed to give you an overview of the Naruto
+      universe, using data and resources obtained through the <a href="https://narutodb.xyz/">Naruto DB</a> API.
+    </p>
+    
     </main>
-    <footer class="bg-dark">
-      <h2 class="text-center text-white">Our sponsors</h2>
-      <div class="d-flex justify-content-center align-items-center">
-        <img class="img-footer" src="https://mindhubweb.com/img/logo_blanco.ca1738c0.webp" alt="">
-        <img class="img-footer" src="https://marketing.rappi.com.mx/img/logo.png" alt="">
+    <footer class="bg-dark text-white py-4">
+      <h2 class="text-center">Our sponsors</h2>
+      <div class="d-flex justify-content-center align-items-center sponsors">
+        <img class="img-footer" src="https://mindhubweb.com/img/logo_blanco.ca1738c0.webp" alt="MindHub">
+        <img class="img-footer" src="https://marketing.rappi.com.mx/img/logo.png" alt="Rappi">
       </div>
-      <button class="btn btn-link" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+      <button class="btn btn-link text-white mt-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
         Meet the developers
       </button>
       
@@ -213,7 +173,7 @@
           <div class="card mb-3" style="max-width: 540px;">
             <div class="row g-0">
               <div class="col-md-4">
-                <img src="/assets/banner2.webp" class="img-fluid rounded-start" alt="...">
+                <img src="/assets/banner2.webp" class="img-fluid rounded-start" alt="Juan">
               </div>
               <div class="col-md-8">
                 <div class="card-body">
@@ -225,7 +185,7 @@
           <div class="card mb-3" style="max-width: 540px;">
             <div class="row g-0">
               <div class="col-md-4">
-                <img src="/assets/banner2.webp" class="img-fluid rounded-start" alt="...">
+                <img src="/assets/banner2.webp" class="img-fluid rounded-start" alt="Harold">
               </div>
               <div class="col-md-8">
                 <div class="card-body">
@@ -237,7 +197,7 @@
           <div class="card mb-3" style="max-width: 540px;">
             <div class="row g-0">
               <div class="col-md-4">
-                <img src="/assets/banner2.webp" class="img-fluid rounded-start" alt="...">
+                <img src="/assets/banner2.webp" class="img-fluid rounded-start" alt="Chantal">
               </div>
               <div class="col-md-8">
                 <div class="card-body">
@@ -249,7 +209,7 @@
           <div class="card mb-3" style="max-width: 540px;">
             <div class="row g-0">
               <div class="col-md-4">
-                <img src="/assets/banner2.webp" class="img-fluid rounded-start" alt="...">
+                <img src="/assets/banner2.webp" class="img-fluid rounded-start" alt="Manuel">
               </div>
               <div class="col-md-8">
                 <div class="card-body">
@@ -261,7 +221,7 @@
           <div class="card mb-3" style="max-width: 540px;">
             <div class="row g-0">
               <div class="col-md-4">
-                <img src="/assets/banner2.webp" class="img-fluid rounded-start" alt="...">
+                <img src="/assets/banner2.webp" class="img-fluid rounded-start" alt="Carlos">
               </div>
               <div class="col-md-8">
                 <div class="card-body">
