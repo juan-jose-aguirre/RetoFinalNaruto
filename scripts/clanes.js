@@ -66,14 +66,15 @@ logos.forEach((logo, index) => {
 });
 
 console.log(logos);
-  
+
 const { createApp } = Vue
 
 const clansPage = createApp({
     data() {
         return {
             clans: [],
-            shield: logos
+            shield: logos,
+
         }
     },
     created() {
@@ -85,10 +86,11 @@ const clansPage = createApp({
                 .then(response => response.json())
                 .then(data => {
                     this.clans = data.clans
-                   
+                    console.log(this.clans);
+
                 })
         }
-    }
-}).mount("#containerVue")
+    },
 
+}).mount("#containerVue")
 
