@@ -51,14 +51,14 @@ getData(datos => {
         
         // Afiliación
         if (events.personal.affiliation !== undefined) {
-            affiliation.innerHTML = `Afiliación: <small class="text-body-secondary">${events.personal.affiliation}</small>`;
+            affiliation.innerHTML = `Affiliation: <small class="text-body-secondary">${events.personal.affiliation}</small>`;
         } else {
             affiliation.style.display = "none";
         }
 
         // Sexo
         if (events.personal.sex !== undefined) {
-            sex.innerHTML = `Sexo: <small class="text-body-secondary">${events.personal.sex}</small>`;
+            sex.innerHTML = `Sex: <small class="text-body-secondary">${events.personal.sex}</small>`;
         } else {
             sex.style.display = "none";
         }
