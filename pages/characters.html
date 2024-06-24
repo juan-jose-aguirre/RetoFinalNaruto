@@ -61,43 +61,59 @@
     </header>
 
 
-    <main class="charactersVue">
-        <div>
-            <di>
+    <main id="charactersVue">
+        <div class="d-flex flex-column align-items-center text-center">
+            <img class="img-fluid w-25 my-4" src="/assets/tituloPersonajes.png" alt="title">
+            <p class="fw-bold w-75">
+                Bienvenidos al mundo de "Naruto", donde los ninjas luchan por sus sueños y enfrentan poderosos desafíos. 
+                A continuación, te presentamos a los personajes  que hacen de esta serie una de las más queridas 
+                y emocionantes. Descubre sus historias, motivaciones y habilidades únicas que los hacen destacar en la alde
+                a de Konoha y más allá. ¡Sumérgete en sus aventuras y conoce a los héroes y villanos que forman parte de este
+                 increíble universo ninja!
+            </p>
+        </div>
+        <div class="container-fluid w-100 d-flex ">
+            <div></div>
+            <div class="container-fluid w-25 m-3">
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search characters...." aria-label="Search">
+                  </form>
+                  
+            </div>
+        </div>
 
+        <div class="container-fluid w-75">
+            <div class="container-fluid bg-body-tertiary ">
                 <nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-center">
-                        <li class="page-item disabled">
-                            <a class="page-link">Previous</a>
+                        <li class="page-item" :class="{ disabled: paginaActual === 1 }">
+                            <a class="page-link" href="#" @click="cambiarPagina(paginaActual - 1)">Previous</a>
                         </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">Next</a>
+                        <li class="page-item" v-for="pagina in paginas" :key="pagina" :class="{ active: pagina === paginaActual }">
+                            <a class="page-link" href="#" @click="cambiarPagina(pagina)">{{ pagina }}</a>
+                        </li>
+                        <li class="page-item" :class="{ disabled: paginaActual === totalPaginas }">
+                            <a class="page-link" href="#" @click="cambiarPagina(paginaActual + 1)">Next</a>
                         </li>
                     </ul>
                 </nav>
             </div>
             <div class="row">
-                <div class="col-md-4 mb-4" v-for="personajes" :key="personaje.id">
-                    <div class="card">
-                        <img :src="personaje.imagen" class="card-img-top" alt="Imagen de {{ personaje.nombre }}">
+                <div class="col-md-4 mb-4" v-for="personaje in personajesPaginados" :key="personaje.id">
+                    <div class="card m-3 shadow" style="width: 18rem">
+                        <img :src="personaje.images" class="card-img-top" :alt="'Imagen de ' + personaje.name">
+                        <img :src="personaje.images" class="card-img-top" :alt="'Imagen de ' + personaje.name">
                         <div class="card-body">
-                            <h5 class="card-title">{{ personajes.nombre }}</h5>
+                            <h5 class="card-title">{{ personaje.name }}</h5>
                             
-                            <a href="#" class="btn btn-primary">Más información</a>
+                            <a :href="'detallePersonaje.html?id='+personaje.id" class="btn btn-primary">Más información</a>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
-
     </main>
-
-
-
+    
 
 
 
