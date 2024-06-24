@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Conexion BootStraps -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <!-- Fin BootStrap -->
+    <!-- Fuente de letra Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" /> -->
+    <!-- Fin fuente de letra -->
+    <link rel="shortcut icon" href="/assets/favicon.webp" type="image/x-icon" />
+    <link rel="stylesheet" href="/styles/index.css" />
+    <title>Naruto Proyect</title>
+  </head>
+  <body>
+    <header class="sticky-top">
+      <nav class="navbar navbar-expand-sm barra">
+        <div class="container-fluid w-100">
+          <a class="navbar-brand w-25" href="#"
+            ><img
+              src="/assets/Naruto-Proyect-19-6-2024.png"
+              class="mw-100"
+              alt=""
+          /></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="d-flex w-100 justify-content-end">
+              <ul
+                class="navbar-nav d-flex align-items-sm-center text-center shadow navegadores"
+              >
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="/pages/characters.html"
+                    >Characters</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="/pages/clans.html"
+                    >Clans</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="/pages/villages.html"
+                    >Villages</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="/pages/store.html"
+                    >Store</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="/pages/statistics.html"
+                    >Statistics</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    href="https://github.com/juan-jose-aguirre/RetoFinalNaruto"
+                    target="_blank"
+                    ><img
+                      class="rounded-circle img-github"
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR27kaHyBN4-iwj7H4pMmnE7kaC720Y-PYzKQ&s"
+                      alt=""
+                  /></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main id="store" class="container-fluid">
+      <div class="w-100 d-flex justify-content-center">
+        <img
+          class="w-50 efecto-show"
+          src="/assets/welcome-19-6-2024.webp"
+          alt="WelcomeToNarutoProyect"
+        />
+      </div>
+
+      <div
+        class="d-flex flex-column flex-wrap justify-content-around flex-md-row"
+      >
+        
+        <div class="d-flex justify-content-center">
+          <form class="d-flex justify-content-center" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <div class="d-flex justify-content-center mt-1" id="divRadios">
+              <input
+                type="radio"
+                class="btn-check"
+                name="filtroRadio"
+                id="ascendente"
+                value="ascendente"
+                autocomplete="off"
+                checked
+              />
+              <label class="btn" for="ascendente">upward</label>
+              <input
+                type="radio"
+                class="btn-check"
+                name="filtroRadio"
+                id="descendente"
+                value="descendente"
+                autocomplete="off"
+              />
+              <label class="btn" for="descendente">falling</label>
+            </div>
+          </form>
+            </div>
+        <div class="d-flex flex-wrap justify-content-center">
+          <div
+            v-for="producto of ListaProductos"
+            class="m-2"
+          >
+            <div class="card h-100" style="width: 18rem">
+              <img
+                :src="producto.image"
+                class="card-img-top h-50 object-fit-cover"
+                :alt="producto.name"
+              />
+              <div class="card-body h-50 d-flex flex-column align-items-center justify-content-center">
+                <h5 class="card-title text-center">{{producto.name}}</h5>
+                <p class="card-text text-decoration-underline">
+                  💲{{producto.price}}
+                </p>
+                <div class="d-flex justify-content-between w-75">
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    :data-bs-target="'#exampleModal'+producto.id"
+                  >
+                    Details
+                  </button>
+
+                  <div
+                    class="modal fade"
+                    :id="'exampleModal'+producto.id"
+                    tabindex="-1"
+                    aria-labelledby="exampleModalLabel"
+                    aria-hidden="true"
+                  >
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="exampleModalLabel">
+                            {{producto.name}}
+                          </h1>
+                          <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                          ></button>
+                        </div>
+                        <div class="modal-body">
+                          <div class="w-100 d-flex flex-column align-items-center">
+                            <img
+                              class="object-fit-cover w-75"
+                              :src="producto.image"
+                              alt=""
+                            />
+                            <p class="text-center">{{producto.description}}</p>
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                          >
+                            Close
+                          </button>
+                          <button class="btn d-flex justify-content-center btn-primary" @click="getLike(producto.id)">
+                            <svg
+                              v-if="producto.liked == false"
+                              xmlns="http://www.w3.org/2000/svg"
+                              height="24px"
+                              viewBox="0 -960 960 960"
+                              width="24px"
+                              fill="#e8eaed"
+                            >
+                              <path
+                                d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"
+                              />
+                            </svg>
+                            <svg
+                              v-if="producto.liked == true"
+                              xmlns="http://www.w3.org/2000/svg"
+                              height="24px"
+                              viewBox="0 -960 960 960"
+                              width="24px"
+                              fill="#e8eaed"
+                            >
+                              <path
+                                d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Z"
+                              />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <button class="btn d-flex justify-content-center btn-primary" @click="getLike(producto.id)">
+                    <svg
+                      v-if="producto.liked == false"
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="24px"
+                      viewBox="0 -960 960 960"
+                      width="24px"
+                      fill="#e8eaed"
+                    >
+                      <path
+                        d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"
+                      />
+                    </svg>
+                    <svg
+                      v-if="producto.liked == true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="24px"
+                      viewBox="0 -960 960 960"
+                      width="24px"
+                      fill="#e8eaed"
+                    >
+                      <path
+                        d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+    <footer class="bg-dark">
+      <h2 class="text-center text-white">Our sponsors</h2>
+      <div class="d-flex justify-content-center align-items-center">
+        <img
+          class="img-footer"
+          src="https://mindhubweb.com/img/logo_blanco.ca1738c0.webp"
+          alt=""
+        />
+        <img
+          class="img-footer"
+          src="https://marketing.rappi.com.mx/img/logo.png"
+          alt=""
+        />
+      </div>
+      <button
+        class="btn btn-link"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasExample"
+        aria-controls="offcanvasExample"
+      >
+        Meet the developers
+      </button>
+
+      <div
+        class="offcanvas offcanvas-start"
+        tabindex="-1"
+        id="offcanvasExample"
+        aria-labelledby="offcanvasExampleLabel"
+      >
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasExampleLabel">Workgroup</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column text-center">
+          <div class="card mb-3" style="max-width: 540px">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img
+                  src="/assets/banner2.webp"
+                  class="img-fluid rounded-start"
+                  alt="..."
+                />
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Juan</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3" style="max-width: 540px">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img
+                  src="/assets/banner2.webp"
+                  class="img-fluid rounded-start"
+                  alt="..."
+                />
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Harold</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3" style="max-width: 540px">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img
+                  src="/assets/banner2.webp"
+                  class="img-fluid rounded-start"
+                  alt="..."
+                />
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Chantal</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3" style="max-width: 540px">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img
+                  src="/assets/banner2.webp"
+                  class="img-fluid rounded-start"
+                  alt="..."
+                />
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Manuel</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3" style="max-width: 540px">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img
+                  src="/assets/banner2.webp"
+                  class="img-fluid rounded-start"
+                  alt="..."
+                />
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Carlos</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="module" src="/scripts/store.js"></script>
+  </body>
+</html>

@@ -1,21 +1,21 @@
 const urlClans = "https://narutodb.xyz/api/clan?page=1&limit=58"
 
 const logos = [
-    { imagen: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dfh9vsm-fbfd4714-3fc3-4857-8369-e18cdf26f2e9.png/v1/fill/w_1280,h_1280/aburame_clan_symbol_by_jormxdos_dfh9vsm-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZoOXZzbS1mYmZkNDcxNC0zZmMzLTQ4NTctODM2OS1lMThjZGYyNmYyZTkucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.6_CIfM3tYPgnytpZwHhTXOxNLpYlDZyMjn9nBZmZzfs' },
-    { imagen: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/1d00921e-cbf3-470c-84b0-089619cd5fe3/d4yvue8-c85fd413-b5ee-49b0-9e36-9d0bf77c5c3a.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzFkMDA5MjFlLWNiZjMtNDcwYy04NGIwLTA4OTYxOWNkNWZlM1wvZDR5dnVlOC1jODVmZDQxMy1iNWVlLTQ5YjAtOWUzNi05ZDBiZjc3YzVjM2EucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.-pxypook-CHLF_QgBrxa2e5d2jR1RGOmJMVxTJxZ5T8' },
-    { imagen: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEiUHQa_F0u8N7LdpN6sMvu9CplWbuoue-Yw&s' },
+    { imagen: 'https://w7.pngwing.com/pngs/662/173/png-transparent-hinata-hyuga-neji-hyuga-hyuga-clan-symbol-uchiha-clan-symbol-miscellaneous-angle-logo-thumbnail.png' },
+    { imagen: 'https://w7.pngwing.com/pngs/800/767/png-transparent-choji-akimichi-shino-aburame-sakura-haruno-symbol-symbol-miscellaneous-angle-logo-thumbnail.png' },
+    { imagen: 'https://w7.pngwing.com/pngs/521/948/png-transparent-red-and-black-naruto-mangekyou-sharingan-eye-illustration-sasuke-uchiha-itachi-uchiha-madara-uchiha-kakashi-hatake-clan-uchiha-mata-symmetry-cartoon-naruto-thumbnail.png' },
     { imagen: 'https://static.wikia.nocookie.net/06695054-6ee2-497e-b960-fcd37e8d8b03/scale-to-width/755' },
-    { imagen: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK8FDsQIqR-mRsEN96Eb2fbjKK6K8eDmqW5Q&s' },
-    { imagen: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/90a9d40d-63b0-442b-95ee-9fa9fa8f5a50/db35fzo-85c8d628-edf6-418e-8ab1-dbefd23cd879.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzkwYTlkNDBkLTYzYjAtNDQyYi05NWVlLTlmYTlmYThmNWE1MFwvZGIzNWZ6by04NWM4ZDYyOC1lZGY2LTQxOGUtOGFiMS1kYmVmZDIzY2Q4NzkucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.JK8_g-0Rq6nSSskTG4KkvZtMSBLzfxWI9DyAdmDVM2s' },
-    { imagen: 'https://images5.alphacoders.com/980/980198.png' },
-    { imagen: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6yM9rhVHP-4OicczGrUnS6pF5rSTJkYR3mQ&s' },
+    { imagen: 'https://w7.pngwing.com/pngs/687/576/png-transparent-hashirama-senju-minato-namikaze-senju-clan-symbol-symbol-miscellaneous-logo-black-thumbnail.png' },
+    { imagen: 'https://w7.pngwing.com/pngs/211/455/png-transparent-dojutsu-clan-uchiha-anime-naruto-akatsuki-anime-manga-cartoon-eye-thumbnail.png' },
+    { imagen: 'https://w7.pngwing.com/pngs/211/455/png-transparent-dojutsu-clan-uchiha-anime-naruto-akatsuki-anime-manga-cartoon-eye-thumbnail.png' },
+    { imagen: 'https://w7.pngwing.com/pngs/211/455/png-transparent-dojutsu-clan-uchiha-anime-naruto-akatsuki-anime-manga-cartoon-eye-thumbnail.png' },
     { imagen: 'https://w7.pngwing.com/pngs/769/673/png-transparent-kakashi-hatake-clan-uchiha-logo-heavy-metal-metallica-desktop-wallpaper-rim-naruto.png' },
     { imagen: 'https://static.miraheze.org/esnarutowiki/e/e5/S%C3%ADmbolo_de_Clan_%C5%8Ctsutsuki.svg' },
     { imagen: 'https://pm1.aminoapps.com/7013/98f96ee96642ff05da5c3096a22fc9ecf18a716br1-1024-1006v2_uhq.jpg' },
-    { imagen: 'https://e7.pngegg.com/pngimages/533/103/png-clipart-uchiha-clan-logo-hidan-fan-art-akatsuki-logo-naruto-television-manga.png' },
-    { imagen: 'https://i.pinimg.com/originals/9e/54/7f/9e547f767cc490dd352eb6b24be8fd8c.jpg' },
-    { imagen: 'https://i.pinimg.com/originals/9e/54/7f/9e547f767cc490dd352eb6b24be8fd8c.jpg' },
-    { imagen: 'https://pm1.aminoapps.com/7546/4f244229c25f8cd659e86ea890c74f2ec1e40d93r1-736-735v2_uhq.jpg' },
+    { imagen: 'https://pm1.aminoapps.com/7013/98f96ee96642ff05da5c3096a22fc9ecf18a716br1-1024-1006v2_uhq.jpg' },
+    { imagen: 'https://w7.pngwing.com/pngs/531/736/png-transparent-shimazu-clan-satsuma-domain-japan-mon-hy%C5%ABga-province-japan-trademark-logo-rim-thumbnail.png' },
+    { imagen: 'https://w7.pngwing.com/pngs/531/736/png-transparent-shimazu-clan-satsuma-domain-japan-mon-hy%C5%ABga-province-japan-trademark-logo-rim-thumbnail.png' },
+    { imagen: 'https://w7.pngwing.com/pngs/748/32/png-transparent-sasuke-uchiha-youtube-curse-line-art-tattoo-seal-white-face-animals-thumbnail.png' },
     { imagen: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrBmwMxABx4iYPdci1ZzrDVTbyyIugP32QOw&s' },
     { imagen: 'https://pm1.aminoapps.com/7075/9f701fe1e862c4c756afbcd0136a1ff0caa87543r1-509-476v2_00.jpg' },
     { imagen: 'https://i.pinimg.com/originals/7e/39/16/7e3916ed1f0a208576c87c783a82b51e.png' },
@@ -60,14 +60,21 @@ const logos = [
     { imagen: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwco51iFNMCTPLjCcMZ1xctfyadwhqNelXCA&s' },
     { imagen: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmKw9akTjUMiaciFGDZxodxUsIgb3NolZwYA&s' },
 ];
-  
+
+logos.forEach((logo, index) => {
+    logo.id = index + 1;
+});
+
+console.log(logos);
+
 const { createApp } = Vue
 
 const clansPage = createApp({
     data() {
         return {
             clans: [],
-            shield: logos
+            shield: logos,
+
         }
     },
     created() {
@@ -79,10 +86,11 @@ const clansPage = createApp({
                 .then(response => response.json())
                 .then(data => {
                     this.clans = data.clans
-                   
+                    console.log(this.clans);
+
                 })
         }
-    }
-}).mount("#containerVue")
+    },
 
+}).mount("#containerVue")
 
