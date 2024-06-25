@@ -73,6 +73,8 @@ const clansPage = createApp({
     data() {
         return {
             clans: [],
+            clansUnicos: [],
+            filterClans: [],
             shield: logos,
 
         }
@@ -86,11 +88,20 @@ const clansPage = createApp({
                 .then(response => response.json())
                 .then(data => {
                     this.clans = data.clans
-                    console.log(this.clans);
+                    console.log(this.clans)
+
+                    this.clansUnicos = new Set(this.clans.map(item => item.name.toLowerCase()))
+                    console.log(this.clansUnicos)
+
+                    this.filterClans = [...this.clansUnicos].map(element => {
+
+                        return this.clans.find(item => item.name.toLowerCase() === element)
+                    })
+
+                    console.log(this.filterClans)
 
                 })
         }
     },
 
 }).mount("#containerVue")
-

@@ -1,6 +1,9 @@
 
 
+
 /* Otros estilos */
+
+=======
 
 /* Animaciones */
 @keyframes show {
@@ -54,6 +57,7 @@ body::after {
 }
 
 /* Estilos del header */
+
 #header {
     background-color: rgb(29, 28, 28) !important;
 }
@@ -91,6 +95,7 @@ body::after {
     width: 5vh !important;
     height: auto;
     margin-left: 8px;
+
 }
 
 /* Estilos del contenido principal */
@@ -113,6 +118,7 @@ main {
     text-align: center;
 }
 
+
 .image-container {
     position: relative;
 }
@@ -133,16 +139,20 @@ main {
     z-index: 0;
 }
 
+
 #textoHome {
+
     color: antiquewhite;
 }
 
 /* Banner section */
+
 #explore {
     color: rgb(0, 0, 0);
     border: 3px solid black;
     width: 40%;
 }
+
 
 .banner-section {
     display: flex;
@@ -234,6 +244,7 @@ footer {
     background-color: rgb(29, 28, 28) !important;
     color: white;
     padding: 20px 0;
+
 }
 
 footer h2 {
@@ -251,6 +262,7 @@ footer .sponsors {
     justify-content: center;
     align-items: center;
 }
+
 
 /* Estilos responsivos */
 @media screen and (min-width: 0px) and (max-width: 600px) {
@@ -303,6 +315,7 @@ body .efecto-show {
 }
 
 
+
 /* Estilos de la tabla */
 .table-container {
     position: relative;
@@ -329,3 +342,4 @@ th {
     width: 50%;
     height: auto
   }
+

@@ -23,6 +23,7 @@
 <body>
   <header class="sticky-top">
     <nav class="navbar navbar-expand-sm barra">
+
         <div class="container-fluid w-100" id='narutoLogo'>
             <a class="navbar-brand w-25" href="#">
                 <img src="/assets/NARUTO-6-20-2024.png" class="mw-100" id="logoHeader" alt="" />
@@ -60,6 +61,7 @@
                     </ul>
                 </div>
             </div>
+
         </div>
     </nav>
 </header>
@@ -98,8 +100,8 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(element, index) in clans" :key="element.id"
-              :class="index % 2 === 0 ? 'table-primary' : 'table-light'">
+            <tr v-for="(element, index) in filterClans" :key="element.id"
+              :class="index % 2 === 0 ? 'table-warning' : 'table-dark'">
               <td class="align-middle text-center p-0 w-25">
                 <img :src="shield[index % shield.length].imagen" class="rounded img-fluid iconoClan my-4"
                   alt="Imagen del Clan">
@@ -107,7 +109,7 @@
               <td class="align-middle text-center">{{ element.name }}</td>
               <td class="align-middle text-center">{{ element.characters.length }} Members</td>
               <td class="align-middle text-center">
-                <a :href="'detalleClanes.html?id=' + element.id" class="btn btn-outline-primary">See more...</a>
+                <a :href="'detalleClanes.html?id=' + element.id" :class="index % 2 === 0 ? 'btn btn-outline-dark' : 'btn btn-outline-warning'" class="boton btn-lg">See more...</a>
               </td>
             </tr>
           </tbody>

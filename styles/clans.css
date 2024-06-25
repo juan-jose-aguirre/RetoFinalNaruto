@@ -1,8 +1,10 @@
+
 /* Otros estilos */
 
 /* Animaciones */
 @keyframes show {
     from {
+
         opacity: .5;
         scale: 60%;
     }
@@ -27,6 +29,7 @@ body {
     margin: 0;
 }
 
+
 body::before {
     content: "";
     position: fixed;
@@ -50,6 +53,7 @@ body::after {
     background: rgba(163, 131, 121, 0.4); 
     z-index: -1;
 }
+
 
 /* Estilos del header */
 #header {
@@ -97,6 +101,7 @@ main {
         height: 50vh;
         img {
             height: 50vh;
+
         }
     }
     .tarjeta {
@@ -320,6 +325,7 @@ footer .sponsors {
             height: 35dvh;
             img {
                 height: 35dvh;
+
             }
         }
         .card-link {
@@ -417,10 +423,13 @@ body .efecto-show {
     background: rgba(0, 0, 0, 0.7);
     color: white;
     text-align: center;
+
     opacity: 0;
     transition: opacity 0.3s ease;
 }
 
+
 .clan-item:hover .clan-info {
     opacity: 1;
 }
+
