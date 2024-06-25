@@ -59,13 +59,7 @@ const logos = [
     { imagen: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRm9rjBBZK_X0nT9A4WsQagFqKuds-r0dsQkQ&s' },
     { imagen: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwco51iFNMCTPLjCcMZ1xctfyadwhqNelXCA&s' },
     { imagen: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmKw9akTjUMiaciFGDZxodxUsIgb3NolZwYA&s' },
-];
-
-logos.forEach((logo, index) => {
-    logo.id = index + 1;
-});
-
-console.log(logos);
+]
 
 const { createApp } = Vue
 
@@ -87,7 +81,7 @@ const clansDetails = createApp({
                 .then(response => response.json())
                 .then(data => {
                     this.clans = data  
-                    console.log(this.clans);                 
+                    console.log(this.clans)            
                 })
           
             

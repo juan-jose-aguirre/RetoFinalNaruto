@@ -440,10 +440,10 @@ body .efecto-show {
   }
 
   .cardDetail:hover img{
-    transform: scale(1.15);
+    transform: scale(1.10);
    }
 
    .cardDetail:hover h5{
-    transform: scale(1.5);
+    transform: scale(1.30);
    }
   
