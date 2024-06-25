@@ -88,8 +88,13 @@ const karaPage = createApp({
             let filtroTexto2 = this.akatsukiBk.filter(element => element.name.toLowerCase().includes(this.textoBuscar.toLowerCase()))
             
             let resultadoFinal = filtroTexto.concat(filtroTexto2);
-            this.kara = resultadoFinal
+            
             console.log(resultadoFinal);
+            if (this.categoriaSeleccionada.length>0) {
+                this.kara = resultadoFinal.filter(element => this.categoriaSeleccionada.includes(this.categorias))
+            } else {
+                this.kara = resultadoFinal
+            }
         }
 
     }
