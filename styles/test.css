@@ -1,3 +1,10 @@
+
+
+
+/* Otros estilos */
+
+=======
+
 /* Animaciones */
 @keyframes show {
     from {
@@ -88,6 +95,7 @@ body::after {
     width: 5vh !important;
     height: auto;
     margin-left: 8px;
+
 }
 
 /* Estilos del contenido principal */
@@ -110,6 +118,7 @@ main {
     text-align: center;
 }
 
+
 .image-container {
     position: relative;
 }
@@ -130,18 +139,21 @@ main {
     z-index: 0;
 }
 
-#textoHome{
+
+#textoHome {
+
     color: antiquewhite;
 }
 
 /* Banner section */
 
-#explore{
+#explore {
     color: rgb(0, 0, 0);
     border: 3px solid black;
     width: 40%;
-
 }
+
+
 .banner-section {
     display: flex;
     justify-content: space-around;
@@ -232,6 +244,7 @@ footer {
     background-color: rgb(29, 28, 28) !important;
     color: white;
     padding: 20px 0;
+
 }
 
 footer h2 {
@@ -249,6 +262,7 @@ footer .sponsors {
     justify-content: center;
     align-items: center;
 }
+
 
 /* Estilos responsivos */
 @media screen and (min-width: 0px) and (max-width: 600px) {
@@ -299,3 +313,33 @@ body .efecto-show {
 .img-github {
     width: 5dvh;
 }
+
+
+
+/* Estilos de la tabla */
+.table-container {
+    position: relative;
+}
+
+
+.bottom-right-image {
+    position: absolute;
+    bottom: -5vh; 
+    right: -20ch; /* Ajusta la posición horizontal de la imagen */
+    width: 30vh; /* Ajusta el tamaño de la imagen según sea necesario */
+}
+th {
+    background-color: #F57B18 !important;
+}
+
+.subTabla {
+    background-color: #ddbc60 !important;
+}
+
+
+/*clanes */
+.iconoClan {
+    width: 50%;
+    height: auto
+  }
+
