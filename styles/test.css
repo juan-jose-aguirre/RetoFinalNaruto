@@ -1,3 +1,7 @@
+
+
+/* Otros estilos */
+
 /* Animaciones */
 @keyframes show {
     from {
@@ -50,7 +54,6 @@ body::after {
 }
 
 /* Estilos del header */
-
 #header {
     background-color: rgb(29, 28, 28) !important;
 }
@@ -130,18 +133,17 @@ main {
     z-index: 0;
 }
 
-#textoHome{
+#textoHome {
     color: antiquewhite;
 }
 
 /* Banner section */
-
-#explore{
+#explore {
     color: rgb(0, 0, 0);
     border: 3px solid black;
     width: 40%;
-
 }
+
 .banner-section {
     display: flex;
     justify-content: space-around;
@@ -299,3 +301,31 @@ body .efecto-show {
 .img-github {
     width: 5dvh;
 }
+
+
+/* Estilos de la tabla */
+.table-container {
+    position: relative;
+}
+
+
+.bottom-right-image {
+    position: absolute;
+    bottom: -5vh; 
+    right: -20ch; /* Ajusta la posición horizontal de la imagen */
+    width: 30vh; /* Ajusta el tamaño de la imagen según sea necesario */
+}
+th {
+    background-color: #F57B18 !important;
+}
+
+.subTabla {
+    background-color: #ddbc60 !important;
+}
+
+
+/*clanes */
+.iconoClan {
+    width: 50%;
+    height: auto
+  }
