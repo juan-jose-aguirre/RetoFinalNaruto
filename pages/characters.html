@@ -67,30 +67,45 @@
                 Bienvenidos al mundo de "Naruto", donde los ninjas luchan por sus sueños y enfrentan poderosos desafíos.
                 A continuación, te presentamos a los personajes que hacen de esta serie una de las más queridas
                 y emocionantes. Descubre sus historias, motivaciones y habilidades únicas que los hacen destacar en la
-                alde
-                a de Konoha y más allá. ¡Sumérgete en sus aventuras y conoce a los héroes y villanos que forman parte de
-                este
-                increíble universo ninja!
+                aldea de Konoha y más allá. ¡Sumérgete en sus aventuras y conoce a los héroes y villanos que forman parte de
+                este increíble universo ninja!
             </p>
         </div>
-        <div class="container-fluid w-100 d-flex ">
-            <div></div>
+
+        <!-- filtros y search -->
+        <div class="container-fluid w-100 d-flex">
+            <div class="container mt-5">
+                <div class="btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-primary">
+                        <input type="checkbox" v-model="filtroBestias" @change="filtrarPersonajes"> BESTIAS
+                    </label>
+                    <label class="btn btn-primary">
+                        <input type="checkbox" v-model="filtroOjos" @change="filtrarPersonajes"> OJOS
+                    </label>
+                    <label class="btn btn-primary">
+                        <input type="checkbox" v-model="filtroVillas" @change="filtrarPersonajes"> VILLAS
+                    </label>
+                </div>
+            </div>
+
             <div class="container-fluid w-25 m-3">
                 <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search characters...."
-                        aria-label="Search">
+                    <input class="form-control me-2" v-model="filtroNombre" @input="filtrarPersonajes" type="search"
+                        placeholder="Search characters...." aria-label="Search">
                 </form>
             </div>
         </div>
 
+        <!-- paginacion -->
         <div class="container-fluid w-75">
-            <div class="container-fluid bg-body-tertiary ">
+            <div class="container-fluid bg-body-tertiary">
                 <nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-center">
                         <li class="page-item" :class="{ disabled: paginaActual === 1 }">
                             <a class="page-link" href="#" @click="cambiarPagina(paginaActual - 1)">Previous</a>
                         </li>
-                        <li class="page-item" v-for="pagina in paginas" :key="pagina" :class="{ active: pagina === paginaActual }">
+                        <li class="page-item" v-for="pagina in paginas" :key="pagina"
+                            :class="{ active: pagina === paginaActual }">
                             <a class="page-link" href="#" @click="cambiarPagina(pagina)">{{ pagina }}</a>
                         </li>
                         <li class="page-item" :class="{ disabled: paginaActual === totalPaginas }">
@@ -99,18 +114,26 @@
                     </ul>
                 </nav>
             </div>
+            <!-- tarjetas -->
             <div class="row">
                 <a :href="'detallePersonaje.html?id='+personaje.id" class="col-md-4 mb-4 card-link" v-for="personaje in personajesPaginados" :key="personaje.id">
                     <div class="card m-3 shadow" style="width: 18rem">
-                        <img :src="personaje.images" class="card-img-top" :alt="'Imagen de ' + personaje.name">
+                        <img :src="personaje.images[0] || '/assets/villagesCard.webp'" class="card-img-top"
+                            :alt="'Imagen de ' + personaje.name">
                         <div class="card-body">
                             <h5 class="card-title">{{ personaje.name }}</h5>
+                            
+                            <a :href="'detallePersonaje.html?id='+personaje.id" class="btn btn-primary">Más información</a>
                         </div>
                     </div>
                 </a>
             </div>
         </div>
     </main>
+    
+
+
+
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="/scripts/characters.js"></script>
