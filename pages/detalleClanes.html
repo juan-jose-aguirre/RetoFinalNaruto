@@ -21,68 +21,66 @@
 </head>
 
 <body>
-    <header class="sticky-top">
-        <nav class="navbar navbar-expand-sm barra">
-          <div class="container-fluid w-100">
-            <a class="navbar-brand w-25" href="/index.html"
-              ><img
-                src="/assets/Naruto-Proyect-19-6-2024.png"
-                class="mw-100"
-                alt=""
-            /></a>
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarNav"
-              aria-controls="navbarNav"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-              <div class="d-flex w-100 justify-content-end">
-                <ul class="navbar-nav d-flex align-items-sm-center text-center shadow">
-                  <li class="nav-item">
-                    <a class="nav-link text-white" href="/index.html">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link text-white" href="/pages/characters.html"
-                      >Characters</a
-                    >
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link text-white" href="/pages/clans.html">Clans</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link text-white" href="/pages/villages.html">Villages</a>
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      class="nav-link"
-                      href="https://github.com/juan-jose-aguirre/RetoFinalNaruto"
-                      target="_blank"
-                      ><img
-                        class="rounded-circle img-github"
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR27kaHyBN4-iwj7H4pMmnE7kaC720Y-PYzKQ&s"
-                        alt=""
-                    /></a>
-                  </li>
-                </ul>
-              </div>
-            </div>
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-sm barra">
+      <div class="container-fluid w-100" id='narutoLogo'>
+        <a  class="navbar-brand w-25" href="/index.html"
+          ><img
+            src="/assets/NARUTO-6-20-2024.png"
+            class="mw-100"
+            alt="Naruto Logo"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <div class="d-flex w-100 justify-content-end">
+            <ul class="navbar-nav d-flex align-items-sm-center text-center shadow navegadores">
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="/pages/characters.html">Characters</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="/pages/clans.html">Clans</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="/pages/villages.html">Villages</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="/pages/store.html">Store</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="/pages/statistics.html">Statistics</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://github.com/juan-jose-aguirre/RetoFinalNaruto" target="_blank">
+                  <img class="rounded-circle img-github" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR27kaHyBN4-iwj7H4pMmnE7kaC720Y-PYzKQ&s" alt="GitHub" />
+                </a>
+              </li>
+            </ul>
           </div>
-        </nav>
-      </header>
+        </div>
+      </div>
+    </nav>
+  </header>
     <main id="containerDetails">
         <div class="d-flex flex-column align-items-center text-center">
-            <div class="card tarjeta m-3 shadow" style="width: 18rem">
-                <img :src="shield.imagen || '/assets/clansCard.webp'" class="card-img-top object-fit-contain"
+            <div class="cardDetail rounded-circle w-25 tarjeta card  shadow bg-dark" style="width: 18rem">
+                <img :src="shield.imagen || '/assets/cardClans2.png'" class="rounded-circle my-4 card-img-top object-fit-contain"
                     alt="Village Image" />
                 <div class="card-body d-flex flex-column align-items-center">
                     <img class=" h-25 mb-3 img-fluid" src="/assets/tituloClanDetalle.png" alt="">
-                    <h5 class="card-title">{{clans.name }}</h5>
+                    <h5 class=" text-white">{{clans.name }}</h5>
                 </div>
             </div>
         </div>
@@ -93,10 +91,11 @@
           <div class="row justify-content-center align-items-center">
             <a :href="'detallePersonaje.html?id=' + element.id" class="d-flex flex-column align-items-center text-center mb-4 card-link"
                v-for="element in clans.characters" :key="element.id">
-              <div class="card shadow" style="width: 18rem;">
-                <img :src="element.images" class="card-img-top" :alt="'Imagen de ' + element.name">
+              <div class="cardClans shadow" style="width: 18rem;">
+                <img v-if="element.images.length != 0" :src="element.images[0]" class="card-img-top" :alt="'Imagen de ' + element.name">
+                <img v-if="element.images.length == 0" src="../assets/charactersCard.webp" class="card-img-top" :alt="'Imagen de ' + element.name">
                 <div class="card-body">
-                  <h5 class="card-title">{{ element.name }}</h5>
+                  <h5 class="card-title">{{element.name}}</h5>
                 </div>
               </div>
             </a>
