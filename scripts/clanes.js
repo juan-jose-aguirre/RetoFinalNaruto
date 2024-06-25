@@ -59,25 +59,19 @@ const logos = [
     { imagen: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRm9rjBBZK_X0nT9A4WsQagFqKuds-r0dsQkQ&s' },
     { imagen: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwco51iFNMCTPLjCcMZ1xctfyadwhqNelXCA&s' },
     { imagen: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmKw9akTjUMiaciFGDZxodxUsIgb3NolZwYA&s' },
-];
-
-logos.forEach((logo, index) => {
-    logo.id = index + 1;
-});
-
-console.log(logos);
+]
 
 const { createApp } = Vue
 
 const clansPage = createApp({
     data() {
         return {
-            clans: [],
-            clansUnicos: [],
-            filterClans: [],
-            shield: logos,
-
-        }
+            clans: [],       
+            clansBK: [],     
+            shield: logos,   
+            textoBuscar: "", 
+            filterClans: []  
+        };
     },
     created() {
         this.getData(urlClans)
@@ -88,20 +82,22 @@ const clansPage = createApp({
                 .then(response => response.json())
                 .then(data => {
                     this.clans = data.clans
-                    console.log(this.clans)
+                    this.clansBK = data.clans
 
+                   
                     this.clansUnicos = new Set(this.clans.map(item => item.name.toLowerCase()))
-                    console.log(this.clansUnicos)
-
                     this.filterClans = [...this.clansUnicos].map(element => {
-
                         return this.clans.find(item => item.name.toLowerCase() === element)
                     })
-
-                    console.log(this.filterClans)
-
                 })
         }
     },
-
+    computed: {
+        filteredCharacters() {
+            return this.filterClans.filter(clan =>
+                clan.name.toLowerCase().includes(this.textoBuscar.toLowerCase())
+            )
+        }
+    }
 }).mount("#containerVue")
+

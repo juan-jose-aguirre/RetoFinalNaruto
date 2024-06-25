@@ -83,11 +83,15 @@
 
         <div class="padreChk" id="padreChk">
 
-          <div v-for="affiliation in categorias" class="form-check form-check-inline">
-            <input v-model="categoriaSeleccionada" class="form-check-input" type="checkbox" :id="affiliation"
-              :value="affiliation">
-            <label class="form-check-label" :for="affiliation">{{affiliation}}</label>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="Kara" value="Kara">
+            <label class="form-check-label" for="Kara">Kara</label>
           </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="Akatsuki" value="Akatsuki">
+            <label class="form-check-label" for="Akatsuki">Akatsuki</label>
+          </div>
+          
 
         </div>
 
@@ -108,29 +112,37 @@
 
 
 
-    <div class="row">
-      <a href="detallePersonaje.html?id=0" class="col-md-4 mb-4 card-link">
-        <div class="card m-3 shadow" style="width: 18rem;">
-          <img src="https://static.wikia.nocookie.net/naruto/images/8/87/Zero_tails.png" class="card-img-top" alt="Imagen de Zero-Tails">
-          <div class="card-body">
-            <h5 class="card-title">Zero-Tails</h5>
-          </div>
-        </div>
-      </a>
+    
 
 
       <div class="d-flex flex-column align-items-center flex-md-row flex-md-wrap justify-content-md-center">
-        <div v-for="element in kara" class="card tarjeta m-3 shadow" style="width: 18rem">
+
+        <div v-for="element in kara" class="row">
+          <a :href="'./detallePersonaje.html?id=' + element.id" class="col-md-4 mb-4 card-link">
+            <div class="card m-3 shadow" style="width: 18rem;">
+              <img v-if="element.images.length != 0" :src="element.images[0]" class="card-img-top object-fit-cover"
+                alt="{element.name}" />
+              <img v-if="element.images.length == 0" src="/assets/tituloVillanos.png" class="card-img-top object-fit-cover"
+                alt="tituloVillanos" />
+              
+              <div class="card-body">
+                <h5 class="card-title">{{element.name}}</h5>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- <div v-for="element in kara" class="card tarjeta m-3 shadow" style="width: 18rem">
           <img v-if="element.images.length != 0" :src="element.images[0]" class="card-img-top object-fit-contain"
             alt="..." />
           <img v-if="element.images.length == 0" src="/assets/tituloVillanos.png"
             class="card-img-top object-fit-contain" alt="..." />
           <div class="card-body d-flex flex-column align-items-center">
             <h5 class="card-title">{{element.name}}</h5>
-
             <a :href="'./detallePersonaje.html?id=' + element.id" class="btn btn-primary">See more..</a>
           </div>
-        </div>
+          
+        </div> -->
 
         <!-- <div v-for="element in akatsuki" class="card tarjeta m-3 shadow" style="width: 18rem">
                 <img v-if="element.images.length != 0" :src="element.images[0]" class="card-img-top object-fit-contain"
