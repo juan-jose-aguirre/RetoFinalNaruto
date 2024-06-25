@@ -83,11 +83,15 @@
 
         <div class="padreChk" id="padreChk">
 
-          <!-- <div v-for="affiliation in categorias" class="form-check form-check-inline">
-            <input v-model="categoriaSeleccionada" class="form-check-input" type="checkbox" :id="affiliation"
-              :value="affiliation">
-            <label class="form-check-label" :for="affiliation">{{affiliation}}</label>
-          </div> -->
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="Kara" value="Kara">
+            <label class="form-check-label" for="Kara">Kara</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="Akatsuki" value="Akatsuki">
+            <label class="form-check-label" for="Akatsuki">Akatsuki</label>
+          </div>
+          
 
         </div>
 
@@ -116,9 +120,9 @@
         <div v-for="element in kara" class="row">
           <a :href="'./detallePersonaje.html?id=' + element.id" class="col-md-4 mb-4 card-link">
             <div class="card m-3 shadow" style="width: 18rem;">
-              <img v-if="element.images.length != 0" :src="element.images[0]" class="card-img-top object-fit-contain"
+              <img v-if="element.images.length != 0" :src="element.images[0]" class="card-img-top object-fit-cover"
                 alt="{element.name}" />
-              <img v-if="element.images.length == 0" src="/assets/tituloVillanos.png" class="card-img-top object-fit-contain"
+              <img v-if="element.images.length == 0" src="/assets/tituloVillanos.png" class="card-img-top object-fit-cover"
                 alt="tituloVillanos" />
               
               <div class="card-body">
