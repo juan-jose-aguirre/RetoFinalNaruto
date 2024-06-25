@@ -1,0 +1,201 @@
+/* Otros estilos */
+
+/* Animaciones */
+@keyframes show {
+    from {
+        opacity: .5;
+        scale: 60%;
+    }
+    to {
+        opacity: 1;
+        scale: 100%;
+    }
+}
+
+@keyframes navbar {
+    to {
+        background-color: rgba(24, 24, 24, 0.9);
+        backdrop-filter: blur(5px);
+    }
+}
+
+/* Estilos generales */
+body {
+    background-color: #5590e9;
+    font-family: "Roboto";
+    position: relative;
+    margin: 0;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://wallpapercave.com/wp/wp7237677.jpg') no-repeat center center fixed;
+    background-size: cover;
+    opacity: 0.4;
+    z-index: -2;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(163, 131, 121, 0.4);
+    z-index: -1;
+}
+
+/* Estilos del header */
+#header {
+    background-color: rgb(29, 28, 28) !important;
+}
+
+#logoHeader {
+    height: 80px;
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    border-radius: 10px !important;
+    padding-left: 10px;
+}
+
+.navbar-nav:hover {
+    background-color: rgba(248, 104, 9, 0.6) !important;
+    border-radius: 10px !important;
+    padding-left: 10px;
+}
+
+.nav-link {
+    color: rgb(0, 0, 0) !important;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.nav-link:hover {
+    color: rgb(255, 243, 231) !important;
+}
+
+.img-github {
+    width: 5vh !important;
+    height: auto;
+    margin-left: 8px;
+}
+
+/* Contenedor de detalles de la tarjeta */
+main .card-detail-container {
+    display: flex;
+    align-items: center;
+    justify-content-center;
+    flex-wrap: wrap;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.card-detail-container .card {
+    margin: 10px;
+}
+
+.character-card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    height: 350px;
+    position: relative;
+}
+
+.character-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+
+.card-detail-container .card-body {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    height: 350px;
+    overflow-y: auto;
+    max-width: 400px;
+}
+
+.card-title {
+    font-weight: bold !important;
+    font-size: 25px !important;
+    padding-bottom: 10px !important;
+    color: #333;
+}
+
+.card-text {
+    font-weight: bold !important;
+    font-size: 19px !important;
+    color: #555;
+}
+
+.btn-back {
+    background-color: #F57B18;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-back:hover {
+    background-color: #DD7600;
+}
+
+/* Estilos del footer */
+footer {
+    background-color: rgb(29, 28, 28) !important;
+    color: white;
+    padding: 20px 0;
+}
+
+footer h2 {
+    margin-bottom: 20px;
+}
+
+footer .img-footer {
+    height: 60px;
+    width: auto;
+    margin: 0 15px;
+}
+
+footer .sponsors {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos responsivos */
+@media screen and (min-width: 0px) and (max-width: 600px) {
+    main .card-detail-container {
+        flex-direction: column;
+    }
+
+    main .card-detail-container .card,
+    main .card-detail-container .card-body {
+        width: 100%;
+    }
+}
