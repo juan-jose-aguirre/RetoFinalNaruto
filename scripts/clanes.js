@@ -61,12 +61,6 @@ const logos = [
     { imagen: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmKw9akTjUMiaciFGDZxodxUsIgb3NolZwYA&s' },
 ];
 
-logos.forEach((logo, index) => {
-    logo.id = index + 1;
-});
-
-console.log(logos);
-
 const { createApp } = Vue
 
 const clansPage = createApp({
