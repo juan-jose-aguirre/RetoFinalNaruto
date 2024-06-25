@@ -18,8 +18,6 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
-    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" /> -->
     <!-- Fin fuente de letra -->
     <link rel="shortcut icon" href="/assets/favicon.webp" type="image/x-icon" />
     <link rel="stylesheet" href="/styles/index.css" />
@@ -97,6 +95,7 @@
       </nav>
     </header>
     <main id="store" class="container-fluid">
+
       <div class="w-100 d-flex justify-content-center">
         <img
           class="w-50 efecto-show"
@@ -105,12 +104,9 @@
         />
       </div>
 
-      <div
-        class="d-flex flex-column flex-wrap justify-content-around flex-md-row"
-      >
-        
-        <div class="d-flex justify-content-center">
-          <form class="d-flex justify-content-center" role="search">
+      <div class="d-flex flex-wrap justify-content-around">
+        <div class="d-flex justify-content-center w-75">
+          <form class="d-flex flex-column flex-md-row gap-2" role="search">
             <input
               class="form-control me-2"
               type="search"
@@ -126,6 +122,7 @@
                 value="ascendente"
                 autocomplete="off"
                 checked
+                @click="filtrar()"
               />
               <label class="btn" for="ascendente">upward</label>
               <input
@@ -135,23 +132,33 @@
                 id="descendente"
                 value="descendente"
                 autocomplete="off"
+                @click="filtrar()"
               />
-              <label class="btn" for="descendente">falling</label>
+              <label class="btn" for="descendente" >falling</label>
             </div>
+            <select
+              class="form-select"
+              id="filtroSelect"
+              @change="filtrar"
+              aria-label="Default select example"
+            >
+              <option selected value="none">Select a column</option>
+              <option value="name">Name</option>
+              <option value="price">Price</option>
+            </select>
           </form>
-            </div>
+        </div>
         <div class="d-flex flex-wrap justify-content-center">
-          <div
-            v-for="producto of ListaProductos"
-            class="m-2"
-          >
+          <div v-for="producto of ListaProductos" class="m-2">
             <div class="card h-100" style="width: 18rem">
               <img
                 :src="producto.image"
                 class="card-img-top h-50 object-fit-cover"
                 :alt="producto.name"
               />
-              <div class="card-body h-50 d-flex flex-column align-items-center justify-content-center">
+              <div
+                class="card-body h-50 d-flex flex-column align-items-center justify-content-center"
+              >
                 <h5 class="card-title text-center">{{producto.name}}</h5>
                 <p class="card-text text-decoration-underline">
                   💲{{producto.price}}
@@ -187,12 +194,15 @@
                           ></button>
                         </div>
                         <div class="modal-body">
-                          <div class="w-100 d-flex flex-column align-items-center">
+                          <div
+                            class="w-100 d-flex flex-column align-items-center"
+                          >
                             <img
                               class="object-fit-cover w-75"
                               :src="producto.image"
                               alt=""
                             />
+                            <p class="text-center">💲{{producto.price}}</p>
                             <p class="text-center">{{producto.description}}</p>
                           </div>
                         </div>
@@ -204,9 +214,14 @@
                           >
                             Close
                           </button>
-                          <button class="btn d-flex justify-content-center btn-primary" @click="getLike(producto.id)">
+                          <button
+                            class="btn d-flex justify-content-center btn-primary"
+                            @click="toBuy(producto.id)"
+                          > 
+                          <div v-if="producto.toBuy == false">
+                            Save
                             <svg
-                              v-if="producto.liked == false"
+                              
                               xmlns="http://www.w3.org/2000/svg"
                               height="24px"
                               viewBox="0 -960 960 960"
@@ -214,11 +229,15 @@
                               fill="#e8eaed"
                             >
                               <path
-                                d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"
+                                d="M440-600v-120H320v-80h120v-120h80v120h120v80H520v120h-80ZM280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM40-800v-80h131l170 360h280l156-280h91L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68.5-39t-1.5-79l54-98-144-304H40Z"
                               />
                             </svg>
+                          </div>
+                          <div v-if="producto.toBuy == true">
+
+                          Quit
                             <svg
-                              v-if="producto.liked == true"
+                            
                               xmlns="http://www.w3.org/2000/svg"
                               height="24px"
                               viewBox="0 -960 960 960"
@@ -226,48 +245,125 @@
                               fill="#e8eaed"
                             >
                               <path
-                                d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Z"
+                                d="m634-440-81-80h69l110-200H353l-80-80h525q23 0 35.5 19.5t.5 42.5L692-482q-11 20-28 31t-30 11ZM280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm540 52L566-280H304q-44 0-67-37.5t-3-78.5l42-86-72-162L28-820l56-56L876-84l-56 56ZM486-360l-80-80h-62l-40 80h182Zm136-160h-69 69Zm58 440q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80Z"
                               />
                             </svg>
+                          </div>
+                            
                           </button>
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  <button class="btn d-flex justify-content-center btn-primary" @click="getLike(producto.id)">
-                    <svg
-                      v-if="producto.liked == false"
-                      xmlns="http://www.w3.org/2000/svg"
-                      height="24px"
-                      viewBox="0 -960 960 960"
-                      width="24px"
-                      fill="#e8eaed"
-                    >
-                      <path
-                        d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"
-                      />
-                    </svg>
-                    <svg
-                      v-if="producto.liked == true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      height="24px"
-                      viewBox="0 -960 960 960"
-                      width="24px"
-                      fill="#e8eaed"
-                    >
-                      <path
-                        d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Z"
-                      />
-                    </svg>
+                  <button
+                    class="btn d-flex justify-content-center btn-primary"
+                    @click="toBuy(producto.id)"
+                  >
+                  <svg
+                  v-if="producto.toBuy == false"
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 -960 960 960"
+                  width="24px"
+                  fill="#e8eaed"
+                >
+                  <path
+                    d="M440-600v-120H320v-80h120v-120h80v120h120v80H520v120h-80ZM280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM40-800v-80h131l170 360h280l156-280h91L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68.5-39t-1.5-79l54-98-144-304H40Z"
+                  />
+                </svg>
+                <svg
+                v-if="producto.toBuy == true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 -960 960 960"
+                  width="24px"
+                  fill="#e8eaed"
+                >
+                  <path
+                    d="m634-440-81-80h69l110-200H353l-80-80h525q23 0 35.5 19.5t.5 42.5L692-482q-11 20-28 31t-30 11ZM280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm540 52L566-280H304q-44 0-67-37.5t-3-78.5l42-86-72-162L28-820l56-56L876-84l-56 56ZM486-360l-80-80h-62l-40 80h182Zm136-160h-69 69Zm58 440q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80Z"
+                  />
+                </svg>
                   </button>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
       </div>
+
+      <!-- Button trigger modal -->
+<button v-if="ListaProductosComprar" type="button" class="btn btn-warning d-flex flex-column align-items-center fw-bold text-white" style="position: fixed; bottom: 20vh; right: 8vw;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Cart<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z"/></svg>
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Shopping cart</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body d-flex overflow-x-scroll">
+        <div v-for="producto of ListaProductosComprar" class="m-2">
+          <div v-if="producto.toBuy == true" class="card h-100" style="width: 10rem">
+            <img
+              :src="producto.image"
+              class="card-img-top h-50 object-fit-cover"
+              :alt="producto.name"
+            />
+            <div
+              class="card-body h-50 d-flex flex-column align-items-center justify-content-center"
+            >
+              <h5 class="card-title text-center">{{producto.name}}</h5>
+              <p class="card-text text-decoration-underline">
+                💲{{producto.price}}
+              </p>
+              <div class="d-flex justify-content-center w-75">
+                
+
+                <button
+                  class="btn d-flex justify-content-center btn-primary"
+                  @click="toBuy(producto.id)"
+                >
+                <svg
+                v-if="producto.toBuy == false"
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#e8eaed"
+              >
+                <path
+                  d="M440-600v-120H320v-80h120v-120h80v120h120v80H520v120h-80ZM280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM40-800v-80h131l170 360h280l156-280h91L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68.5-39t-1.5-79l54-98-144-304H40Z"
+                />
+              </svg>
+              <svg
+              v-if="producto.toBuy == true"
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#e8eaed"
+              >
+                <path
+                  d="m634-440-81-80h69l110-200H353l-80-80h525q23 0 35.5 19.5t.5 42.5L692-482q-11 20-28 31t-30 11ZM280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm540 52L566-280H304q-44 0-67-37.5t-3-78.5l42-86-72-162L28-820l56-56L876-84l-56 56ZM486-360l-80-80h-62l-40 80h182Zm136-160h-69 69Zm58 440q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80Z"
+                />
+              </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger align-middle" data-bs-dismiss="modal" @click="limpiarCarrito">Empty<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg></button>
+        <button type="button" class="btn btn-success align-middle">Pay<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M560-440q-50 0-85-35t-35-85q0-50 35-85t85-35q50 0 85 35t35 85q0 50-35 85t-85 35ZM280-320q-33 0-56.5-23.5T200-400v-320q0-33 23.5-56.5T280-800h560q33 0 56.5 23.5T920-720v320q0 33-23.5 56.5T840-320H280Zm80-80h400q0-33 23.5-56.5T840-480v-160q-33 0-56.5-23.5T760-720H360q0 33-23.5 56.5T280-640v160q33 0 56.5 23.5T360-400Zm440 240H120q-33 0-56.5-23.5T40-240v-440h80v440h680v80ZM280-400v-320 320Z"/></svg></button>
+      </div>
+    </div>
+  </div>
+</div>
     </main>
     <footer class="bg-dark">
       <h2 class="text-center text-white">Our sponsors</h2>
