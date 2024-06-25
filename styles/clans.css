@@ -327,3 +327,6 @@ body .efecto-show {
     transform: scale(1.30);
    }
   
+th {
+    background-color: #F57B18 !important;
+}
