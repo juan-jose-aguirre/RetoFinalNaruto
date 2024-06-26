@@ -188,7 +188,7 @@ footer .sponsors {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap; /* Allow wrapping */
+    flex-wrap: wrap; 
 }
 
 /* Estilos de la tabla */

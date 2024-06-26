@@ -19,7 +19,7 @@
 
 /* Estilos generales */
 body {
-    background-color: #2c3e50;
+    background-color: #35498a;
     font-family: "Roboto";
     position: relative;
     margin: 0;
@@ -45,15 +45,11 @@ body::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(188, 202, 224, 0.288); 
+    background: rgba(92, 114, 131, 0.425); 
     z-index: -1;
 }
 
 /* Estilos del header */
-#header {
-    background-color: rgb(29, 28, 28) !important;
-}
-
 #logoHeader {
     height: 80px;
 }
@@ -119,50 +115,27 @@ body::after {
     color: antiquewhite;
 }
 
-/* Banner section */
-#explore {
-    color: rgb(0, 0, 0);
-    border: 3px solid black;
-    width: 40%;
-}
-
-.banner-section {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 300px;
-    margin-top: 50px;
-}
-
-.banner-link {
-    flex: 1;
-    height: 100%;
-    display: block;
-}
-
-.banner-item {
-    background-size: cover;
-    background-position: center;
-    height: 100%;
-    position: relative;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.banner-item:hover {
-    transform: scale(1.05);
-    opacity: 0.7; 
-}
-
-.banner-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+/* Botones de filtro */
+.btn-group label {
+    margin: 5px;
+    padding: 10px 20px;
+    background-color: #f57b18;
     color: white;
-    font-size: 2rem;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    opacity: 1; 
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-group input[type="checkbox"] {
+    display: none;
+}
+
+.btn-group input[type="checkbox"]:checked + label {
+    background-color: #ff8c00;
+}
+
+.btn-group label:hover {
+    background-color: #ffa500;
 }
 
 /* cartas */
@@ -180,7 +153,7 @@ body::after {
     position: relative;
     overflow: hidden;
     transition: transform 0.3s ease, opacity 0.3s ease;
-    margin: 5px; 
+    margin: 5px; /* Reduce margin for closer icons */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     background-color: rgba(255, 255, 255, 0.8);
     border: 2px solid rgba(255, 255, 255, 0.5);
@@ -219,6 +192,25 @@ body::after {
     opacity: 1;
 }
 
+/* Estilos para el contenedor del texto destacado */
+.highlighted-text-container {
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    border-radius: 15px;
+    margin: 20px;
+    text-align: center;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.highlighted-text {
+    color: #ffffff;
+    font-size: 1.2em;
+    line-height: 1.5;
+}
+
 /* Estilos del footer */
 footer {
     background-color: rgb(29, 28, 28) !important;
@@ -242,67 +234,12 @@ footer .sponsors {
     align-items: center;
 }
 
-/* Estilos de la tabla */
-.table-container {
-    position: relative;
-}
-
-th {
-    background-color: #F57B18 !important;
-}
-
-.subTabla {
-    background-color: #ddbc60 !important;
-}
-
-.image {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 50%;
-    transition: all 0.3s;
-}
-
-.image:hover {
-    transform: scale(1.6);
-    border: 2px solid orange;
-}
-
-.boton {    
-    transition: all 0.3s;
-}
-
-.boton:hover {
-    transform: scale(1.15);
-}
-
-.cardDetail {    
-    transition: all 0.3s;
-}
-
-.cardDetail:hover img {
-    transform: scale(1.10);
-}
-
-.cardDetail:hover h5 {
-    transform: scale(1.30);
-}
-
-/* Responsive Styles */
-@media screen and (min-width: 0px) and (max-width: 600px) {
-    main {
-        .carrusel {
-            height: 35dvh;
-            img {
-                height: 35dvh;
-            }
-        }
-        .card-link {
-            flex: 1 0 46%; 
-        }
-    }
-}
+/* Estilos responsivos */
 @media screen and (max-width: 600px) {
+    .cardClans {
+        height: 200px;
+        width: 200px;
+    }
     footer .sponsors {
         flex-direction: column; 
         text-align: center; 
@@ -317,13 +254,15 @@ th {
     }
 }
 
+/* Estilos adicionales */
 body header .navegadores a:hover {
     filter: drop-shadow(1px 1px 1px #F57B18);
     border-radius: 100%;
 }
 
 body a {
-    color: #0a0a09;
+    color: #ee9e70;
+    font-weight: bold;
 }
 
 body .barra {
@@ -341,12 +280,53 @@ body .efecto-show {
     animation-fill-mode: both;
 }
 
+.imageClans {
+    width: 30%;
+    max-width: 100%;
+    max-height: auto;
+}
+
 .img-github {
     width: 5dvh;
 }
 
+/* Estilos de los botones de filtro */
+.btn-group input[type="checkbox"] {
+    display: none;
+}
 
+.btn-group label {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: #F57B18;
+    color: white;
+    text-align: center;
+}
 
-th {
-    border-left: #414141 2px solid;
+.btn-group label:hover {
+    background-color: #d4550c;
+}
+
+.btn-group input[type="checkbox"]:checked + label {
+    background-color: #414141;
+    color: white;
+}
+
+/* Estilos responsivos */
+@media (max-width: 600px) {
+    .btn-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .btn-group label {
+        width: 80%;
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
 }
