@@ -74,8 +74,26 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(element, index) in filteredCharacters" :key="element.id" :class="index % 2 === 0 ? 'table-warning' : 'table'">
-              <td class="align-middle text-center p-0 w-25"><img :src="shield[index % shield.length].imagen" class=" img-fluid image my-4" :alt="'Imagen del Clan ' + element.name"></td>
+
+      //    <tr v-for="(element, index) in filteredCharacters" :key="element.id" :class="index % 2 === 0 ? 'table-warning' : 'table'">
+     //           <td class="align-middle text-center p-0 w-25"><img :src="shield[index % shield.length].imagen" class=" img-fluid image my-4" :alt="'Imagen del Clan ' + element.name"></td>
+          
+
+
+            <tr v-if="filteredCharacters.length === 0">
+              <td colspan="4" class="text-center"><div class="alert alert-danger mt-3 d-block" role="alert">
+                There were no coincidences!
+              </div></td>
+            </tr>
+           
+            <tr v-else v-for="(element, index) in filteredCharacters" :key="element.id"
+              :class="index % 2 === 0 ? 'table-warning' : 'table-dark'">
+
+              <td class="align-middle text-center p-0 w-25">
+                <img :src="shield[index % shield.length].imagen" class=" img-fluid image my-4"
+                  :alt="'Imagen del Clan ' + element.name">
+              </td>
+
               <td class="align-middle text-center">{{ element.name }}</td>
               <td class="align-middle text-center">{{ element.characters.length }} Members</td>
               <td class="align-middle text-center"><a :href="'detalleClanes.html?id=' + element.id" :class="index % 2 === 0 ? 'btn btn-outline' : 'btn btn-outline'" id='seemore' class="boton btn-lg">See more...</a></td>

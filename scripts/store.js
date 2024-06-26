@@ -44,6 +44,7 @@ const products = [
 const { createApp } = Vue;
 
 const app = createApp({
+
   data(){
       return{
           ListaProductosBK:products,
@@ -74,6 +75,7 @@ const app = createApp({
           for(let productoDisponible of this.ListaProductos){
             if(productoDisponible == producto){
               if(!this.listaCarrito.includes(producto)){
+
                 productoDisponible.toBuy = !productoDisponible.toBuy;
                 this.listaCarrito.push(producto)
               }
@@ -108,6 +110,7 @@ const app = createApp({
               this.ListaProductos = this.ListaProductos.sort((a,b) => a[propiedad] - b[propiedad]);
             }
 
+
           }else{
             if(propiedad == "name"){
               this.ListaProductos = this.ListaProductos.sort((a,b) => a[propiedad].localeCompare(b[propiedad]));
@@ -120,6 +123,7 @@ const app = createApp({
       limpiarCarrito(producto){
         console.log(this.listaCarrito.length);
         if(this.listaCarrito.length == 1){
+
           for(let productoDisponible of this.ListaProductos){
             if(productoDisponible.id == producto.id){
               productoDisponible.toBuy = !productoDisponible.toBuy;
