@@ -66,8 +66,10 @@
             <p class="fw-bold w-75">
                 Welcome to the world of "Naruto," where ninjas fight for their dreams and face powerful challenges.
                 Below, we present you the characters who make this series one of the most beloved and exciting.
-                Discover their stories, motivations, and unique abilities that make them stand out in the village of Konoha and beyond.
-                Immerse yourself in their adventures and meet the heroes and villains who are part of this incredible ninja universe!
+                Discover their stories, motivations, and unique abilities that make them stand out in the village of
+                Konoha and beyond.
+                Immerse yourself in their adventures and meet the heroes and villains who are part of this incredible
+                ninja universe!
             </p>
         </div>
 
@@ -76,42 +78,40 @@
         <div class="container-fluid w-75 d-flex justify-content-center">
             <div class="container mt-5 w-50 ">
                 <div class="btn-group" data-toggle="buttons">
-                    <label class="btn btn-warning ">
-                        <input type="checkbox"  id="btn-check-4" v-model="filtroBestias"
+                    <label class="btn btn-warning " for="jinchūriki">
+                        <input type="checkbox"  id="jinchūriki" v-model="filtroBestias"
                             @change="filtrarPersonajes">jinchūriki
                     </label>
-                    <label class="btn  btn-warning " for="btn-check-4">
-                        <input type="checkbox"  v-model="filtroBoruto" @change="filtrarPersonajes">
+                    <label class="btn  btn-warning " for="boruto">
+                        <input type="checkbox" id="boruto" v-model="filtroBoruto" @change="filtrarPersonajes">
                         boruto
                     </label>
-                    <label class="btn btn-warning" for="btn-check-4">
-                        <input type="checkbox"  v-model="filtroOjos"
-                            @change="filtrarPersonajes">kekkeiGenkai
+                    <label class="btn btn-warning" for="kekkeiGenkai">
+                        <input type="checkbox" id="kekkeiGenkai" v-model="filtroOjos" @change="filtrarPersonajes">kekkeiGenkai
                     </label>
-                    <label class="btn btn-warning" for="btn-check-4">
-                        <input type="checkbox"  v-model="filtroShippuden" @change="filtrarPersonajes">
+                    <label class="btn btn-warning" for="narutoShippuden">
+                        <input type="checkbox" id="narutoShippuden" v-model="filtroShippuden" @change="filtrarPersonajes">
                         Naruto Shippuden
                     </label>
-                    <label class="btn btn-warning" for="btn-check-4">
-                        <input type="checkbox"  v-model="filtroNaruto"
-                            @change="filtrarPersonajes">Naruto
+                    <label class="btn btn-warning" for="naruto">
+                        <input type="checkbox" id="naruto" v-model="filtroNaruto" @change="filtrarPersonajes">Naruto
                     </label>
-                    
+
                 </div>
             </div>
             <!-- search -->
 
             <div class="container-fluid w-50 m-3">
                 <form class="d-flex " role="search">
-                    <input class="form-control me-2 w-100" v-model="filtroNombre" @input="filtrarPersonajes" type="search"
-                        placeholder="Search characters...." aria-label="Search">
+                    <input class="form-control me-2 w-100" v-model="filtroNombre" @input="filtrarPersonajes"
+                        type="search" placeholder="Search characters...." aria-label="Search">
                 </form>
             </div>
         </div>
 
         <!-- paginacion -->
-        <div class="container-fluid w-75 d-flex flex-wrap">
-            <div class="container-fluid ">
+        <div class="container-fluid w-75 d-flex flex-wrap" >
+            <div class="container-fluid  ">
                 <nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-center">
                         <li class="page-item" :class="{ disabled: paginaActual === 1 }">
@@ -126,8 +126,17 @@
                         </li>
                     </ul>
                 </nav>
+               
             </div>
+
+
             <!-- tarjetas -->
+
+           <div v-if="personajesPaginados.length == 0">
+            <div class="alert alert-danger mt-3 d-block" role="alert">
+              There were no coincidences!
+            </div>
+          </div>
             <div v-for="personaje in personajesPaginados" :key="personaje.id">
                 <a :href="'detallePersonaje.html?id='+personaje.id" class="col-md-4 mb-4 card-link">
                     <div class="card m-3 shadow" style="width: 18rem">
@@ -143,6 +152,7 @@
                     </div>
                 </a>
             </div>
+            
 
             <div class="container-fluid ">
                 <nav aria-label="Page navigation example">
