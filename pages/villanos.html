@@ -43,7 +43,7 @@
                 <a class="nav-link text-white" href="/pages/clans.html">Clans</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" href="#">Villain</a>
+                <a class="nav-link text-white" href="#">Villains</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-white" href="/pages/store.html">Store</a>
@@ -78,10 +78,10 @@
 
     </div>
     <div class="container">
-      <div class="d-flex flex-column flex-md-row py-4 gap-4  align-items-center justify-content-between">
+      <div class="d-flex flex-column flex-md-row py-4 gap-4  align-items-center justify-content-center">
         {{superFiltro}}
 
-        <div class="padreChk" id="padreChk">
+        <!-- <div class="padreChk" id="padreChk">
 
           <div class="form-check form-check-inline">
             <input @change="filtrochk" class="form-check-input" type="checkbox" id="Kara" value="Kara">
@@ -94,7 +94,7 @@
           </div>
           
 
-        </div>
+        </div> -->
 
 
         <div>
@@ -115,10 +115,14 @@
 
     
 
+    
 
       <div class="d-flex flex-column align-items-center flex-md-row flex-md-wrap justify-content-md-center">
+        
+        
 
         <div v-for="element in kara" class="row">
+          
           <a :href="'./detallePersonaje.html?id=' + element.id" class="col-md-4 mb-4 card-link">
             <div class="card m-3 shadow" style="width: 18rem;">
               <img v-if="element.images.length != 0" :src="element.images[0]" class="card-img-top object-fit-cover"
@@ -131,6 +135,7 @@
               </div>
             </div>
           </a>
+          
         </div>
 
         <!-- <div v-for="element in kara" class="card tarjeta m-3 shadow" style="width: 18rem">
@@ -161,7 +166,87 @@
 
       </div>
   </main>
-
+  <footer class="bg-dark text-white py-4">
+    <h2 class="text-center">Our sponsors</h2>
+    <div class="d-flex justify-content-center align-items-center position-relative">
+      <div class="d-flex justify-content-center align-items-center sponsors">
+        <img class="img-footer mx-2" src="https://mindhubweb.com/img/logo_blanco.ca1738c0.webp" alt="MindHub">
+        <img class="img-footer mx-2" src="https://marketing.rappi.com.mx/img/logo.png" alt="Rappi">
+      </div>
+      <button class="btn btn-link text-white mt-3 position-absolute end-0 me-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+        Meet the developers
+      </button>
+    </div>
+    
+    <div class="offcanvas offcanvas-start  " tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Workgroup</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body d-flex flex-column text-center  ">
+        <div class="card mb-3" style="max-width: 540px;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="/assets/banner2.webp" class="img-fluid rounded-start" alt="Juan">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title text-black">Juan</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card mb-3" style="max-width: 540px;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="/assets/banner2.webp" class="img-fluid rounded-start" alt="Harold">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title text-black">Harold</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card mb-3" style="max-width: 540px;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="/assets/banner2.webp" class="img-fluid rounded-start" alt="Chantal">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title text-black">Chantal</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card mb-3" style="max-width: 540px;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="/assets/banner2.webp" class="img-fluid rounded-start" alt="Manuel">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title text-black">Manuel</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card mb-3" style="max-width: 540px;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="/assets/banner2.webp" class="img-fluid rounded-start" alt="Carlos">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title text-black">Carlos</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
 
 
 
