@@ -64,41 +64,54 @@
         <div class="d-flex flex-column align-items-center text-center">
             <img class="img-fluid w-25 my-4" src="/assets/tituloPersonajes.png" alt="title">
             <p class="fw-bold w-75">
-                Bienvenidos al mundo de "Naruto", donde los ninjas luchan por sus sueños y enfrentan poderosos desafíos.
-                A continuación, te presentamos a los personajes que hacen de esta serie una de las más queridas
-                y emocionantes. Descubre sus historias, motivaciones y habilidades únicas que los hacen destacar en la
-                aldea de Konoha y más allá. ¡Sumérgete en sus aventuras y conoce a los héroes y villanos que forman parte de
-                este increíble universo ninja!
+                Welcome to the world of "Naruto," where ninjas fight for their dreams and face powerful challenges.
+                Below, we present you the characters who make this series one of the most beloved and exciting.
+                Discover their stories, motivations, and unique abilities that make them stand out in the village of Konoha and beyond.
+                Immerse yourself in their adventures and meet the heroes and villains who are part of this incredible ninja universe!
             </p>
         </div>
 
         <!-- filtros y search -->
-        <div class="container-fluid w-100 d-flex">
-            <div class="container mt-5">
-                <div class="btn-group-toggle" data-toggle="buttons">
-                    <label class="btn btn-primary">
-                        <input type="checkbox" v-model="filtroBestias" @change="filtrarPersonajes"> BESTIAS
+
+        <div class="container-fluid w-75 d-flex justify-content-center">
+            <div class="container mt-5 w-50 ">
+                <div class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-warning ">
+                        <input type="checkbox"  id="btn-check-4" v-model="filtroBestias"
+                            @change="filtrarPersonajes">jinchūriki
                     </label>
-                    <label class="btn btn-primary">
-                        <input type="checkbox" v-model="filtroOjos" @change="filtrarPersonajes"> OJOS
+                    <label class="btn  btn-warning " for="btn-check-4">
+                        <input type="checkbox"  v-model="filtroBoruto" @change="filtrarPersonajes">
+                        boruto
                     </label>
-                    <label class="btn btn-primary">
-                        <input type="checkbox" v-model="filtroVillas" @change="filtrarPersonajes"> VILLAS
+                    <label class="btn btn-warning" for="btn-check-4">
+                        <input type="checkbox"  v-model="filtroOjos"
+                            @change="filtrarPersonajes">kekkeiGenkai
                     </label>
+                    <label class="btn btn-warning" for="btn-check-4">
+                        <input type="checkbox"  v-model="filtroShippuden" @change="filtrarPersonajes">
+                        Naruto Shippuden
+                    </label>
+                    <label class="btn btn-warning" for="btn-check-4">
+                        <input type="checkbox"  v-model="filtroNaruto"
+                            @change="filtrarPersonajes">Naruto
+                    </label>
+                    
                 </div>
             </div>
+            <!-- search -->
 
-            <div class="container-fluid w-25 m-3">
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" v-model="filtroNombre" @input="filtrarPersonajes" type="search"
+            <div class="container-fluid w-50 m-3">
+                <form class="d-flex " role="search">
+                    <input class="form-control me-2 w-100" v-model="filtroNombre" @input="filtrarPersonajes" type="search"
                         placeholder="Search characters...." aria-label="Search">
                 </form>
             </div>
         </div>
 
         <!-- paginacion -->
-        <div class="container-fluid w-75">
-            <div class="container-fluid bg-body-tertiary">
+        <div class="container-fluid w-75 d-flex flex-wrap">
+            <div class="container-fluid ">
                 <nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-center">
                         <li class="page-item" :class="{ disabled: paginaActual === 1 }">
@@ -115,22 +128,41 @@
                 </nav>
             </div>
             <!-- tarjetas -->
-            <div class="row">
-                <a :href="'detallePersonaje.html?id='+personaje.id" class="col-md-4 mb-4 card-link" v-for="personaje in personajesPaginados" :key="personaje.id">
+            <div v-for="personaje in personajesPaginados" :key="personaje.id">
+                <a :href="'detallePersonaje.html?id='+personaje.id" class="col-md-4 mb-4 card-link">
                     <div class="card m-3 shadow" style="width: 18rem">
-                        <img :src="personaje.images[0] || '/assets/villagesCard.webp'" class="card-img-top"
-                            :alt="'Imagen de ' + personaje.name">
+                        <img v-if="personaje.images.length != 0" :src="personaje.images[0]" class="card-img-top"
+                            :alt="personaje.name">
+                        <img v-if="personaje.images.length == 0" src="/assets/favicon.webp" class="card-img-top"
+                            :alt="personaje.name">
                         <div class="card-body">
                             <h5 class="card-title">{{ personaje.name }}</h5>
-                            
-                            <a :href="'detallePersonaje.html?id='+personaje.id" class="btn btn-primary">Más información</a>
+                            <a :href="'detallePersonaje.html?id='+personaje.id" class="btn btn-primary">Más
+                                información</a>
                         </div>
                     </div>
                 </a>
             </div>
+
+            <div class="container-fluid ">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item" :class="{ disabled: paginaActual === 1 }">
+                            <a class="page-link" href="#" @click="cambiarPagina(paginaActual - 1)">Previous</a>
+                        </li>
+                        <li class="page-item" v-for="pagina in paginas" :key="pagina"
+                            :class="{ active: pagina === paginaActual }">
+                            <a class="page-link" href="#" @click="cambiarPagina(pagina)">{{ pagina }}</a>
+                        </li>
+                        <li class="page-item" :class="{ disabled: paginaActual === totalPaginas }">
+                            <a class="page-link" href="#" @click="cambiarPagina(paginaActual + 1)">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </main>
-    
+
 
 
 
@@ -139,7 +171,7 @@
     <script src="/scripts/characters.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-    </script>
+        </script>
 
 </body>
 
