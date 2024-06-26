@@ -180,6 +180,9 @@ footer .sponsors {
     footer .btn-link {
         margin-top: 20px;
     }
+    w-100 mb-4 text-center mt-5{
+        margin-bottom: 100px !important;
+    }
 }
 
 body header .navegadores a:hover {
