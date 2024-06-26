@@ -15,12 +15,9 @@ function getData(done) {
 
 idDetails = window.location.href
 idDetails = new URL(idDetails).searchParams.get("id")
-console.log(idDetails);
 
 getData(datos => {
-    console.log(datos);
     let events = datos.characters
-    console.log(events);
     let tarjeta = events.filter(events => events.id == idDetails)
     tarjeta.forEach(events => {
         let img = document.getElementById("img")
@@ -77,18 +74,6 @@ getData(datos => {
             status.style.display = "none";
         }
 
-
-
-
-
-
-
     })
-
-
-
-    console.log(idDetails);
-    console.log(tarjeta);
-
 
 })

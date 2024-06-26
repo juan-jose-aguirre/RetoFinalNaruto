@@ -25,24 +25,17 @@ const app = createApp({
         main(){
             fetch(urlVillages).then(res => res.json()).then(data =>{
                 this.aldeas = [...data.villages];
-                // "Konohagakure"
                 this.aldeaMasPersonajes = conMasPersonajes(this.aldeas);
-                // console.log("Se cargo village");
             })
             fetch(urlClans).then(res => res.json()).then(data =>{
                 this.clanes = [...data.clans];
-                // console.log(this.clanes);
                 this.clanMasPersonajes = conMasPersonajes(this.clanes);
                 this.clanNombreMasLargo = nombreMasLargo(this.clanes);
                 this.PorClan = objetoClanes(this.clanes);
-                // console.log(this.PorClan);
-                // console.log("Se cargo Clans");
             })
             fetch(urlCharacters).then(res => res.json()).then(data =>{
                 this.personajes = [...data.characters];
-                // console.log(this.personajes);
                 this.personajes.forEach(personaje=> {
-                    // console.log(personaje.personal);
                     if(personaje.personal){
                         if(personaje.personal.status == "Deceased"){
                             this.personajesMuertos++
@@ -54,28 +47,20 @@ const app = createApp({
                             this.personajesMujeres++
                         }
                     } 
-                        // console.log(personaje.id);
                 });
-                // this.personajesHombres,
-                // this.personajesMujeres
-                // console.log("Se cargo Pers");
             })
-            
         }
     },
     computed:{}
 }).mount("#statistics");
 
 function objetoClanes(lista){
-    // console.log(lista);
     let listaClanes = ["Uzumaki","Uchiha","Hyūga","Ōtsutsuki","Senju"];
-    // let listaClanes = ["Uzumaki"];
     let objetoClanes = {
         clanes:[]
     };
     for(let clan of listaClanes){
         let listaPersonajes = lista.filter(grupo => grupo.name == clan);
-        // console.log(listaPersonajes);
         let sumaJutsus = 0;
         let sumaTools = 0;
         for(let personaje of listaPersonajes[0].characters){

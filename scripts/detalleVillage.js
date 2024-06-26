@@ -19,7 +19,6 @@ const villageDetailsApp = createApp({
                 .then(response => response.json())
                 .then(data => {
                     this.village = data;
-                    console.log(this.village);
                 })
                 .catch(error => console.error('Error fetching village data:', error));
         }
