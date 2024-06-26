@@ -227,6 +227,25 @@ main {
     opacity: 1;
 }
 
+/* Estilos para el contenedor del texto destacado */
+.highlighted-text-container {
+    background-color: rgba(0, 0, 0, 0.4); 
+    padding: 20px;
+    border-radius: 15px;
+    margin: 20px;
+    text-align: center;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.highlighted-text {
+    color: #ffffff;
+    font-size: 1.2em;
+    line-height: 1.5;
+}
+
 /* Estilos del footer */
 footer {
     background-color: rgb(29, 28, 28) !important;
@@ -239,15 +258,16 @@ footer h2 {
 }
 
 footer .img-footer {
-    height: 60px; 
+    height: 60px;
     width: auto;
-    margin: 0 15px; 
+    margin: 0 15px;
 }
 
 footer .sponsors {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap; 
 }
 
 /* Estilos responsivos */
@@ -264,6 +284,20 @@ footer .sponsors {
         }
     }
 }
+@media screen and (max-width: 600px) {
+    footer .sponsors {
+        flex-direction: column; 
+        text-align: center; 
+    }
+    
+    footer .img-footer {
+        margin: 10px 0; 
+    }
+
+    footer .btn-link {
+        margin-top: 20px; 
+    }
+}
 
 /* Estilos adicionales */
 body header .navegadores a:hover {
@@ -272,7 +306,8 @@ body header .navegadores a:hover {
 }
 
 body a {
-    color: #0a0a09;
+    color: #ee9e70;
+    font-weight: bold;
 }
 
 body .barra {

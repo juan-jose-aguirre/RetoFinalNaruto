@@ -91,79 +91,62 @@ body::after {
     margin-left: 8px;
 }
 
-/* Contenedor de detalles de la tarjeta */
-main .card-detail-container {
-    display: flex;
-    align-items: center;
-    justify-content-center;
-    flex-wrap: wrap;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
-}
-
-.card-detail-container .card {
-    margin: 10px;
-}
-
-.character-card {
-    border: none;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 350px;
-    height: 350px;
+/* Recibidor pergamino */
+.w-100.mb-4 {
     position: relative;
+    text-align: center;
 }
 
-.character-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 15px;
+.centered-text {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(43, 43, 43);
+    z-index: 1;
+}
+
+.efecto-show {
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    z-index: 0;
+}
+
+/* Cartas */
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 
 
-.card-detail-container .card-body {
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    height: 350px;
-    overflow-y: auto;
-    max-width: 400px;
+.card-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .card-title {
-    font-weight: bold !important;
-    font-size: 25px !important;
-    padding-bottom: 10px !important;
+    font-weight: bold;
     color: #333;
 }
 
 .card-text {
-    font-weight: bold !important;
-    font-size: 19px !important;
-    color: #555;
+    color: #666;
 }
 
-.btn-back {
+.btn-primary {
     background-color: #F57B18;
     border: none;
-    padding: 10px 20px;
-    font-weight: bold;
-    transition: background-color 0.3s;
 }
 
-.btn-back:hover {
-    background-color: #DD7600;
-}
+
+
+
+/* Botón Go Up */
+
 
 /* Estilos del footer */
 footer {
@@ -190,26 +173,43 @@ footer .sponsors {
 
 /* Estilos responsivos */
 @media screen and (min-width: 0px) and (max-width: 600px) {
-    main .card-detail-container {
-        flex-direction: column;
-    }
-
-    main .card-detail-container .card,
-    main .card-detail-container .card-body {
-        width: 100%;
+    main {
+        .carrusel {
+            height: 35dvh;
+            img {
+                height: 35dvh;
+            }
+        }
+        .card-link {
+            flex: 1 0 46%;
+        }
     }
 }
-@media screen and (max-width: 600px) {
-    footer .sponsors {
-        flex-direction: column; 
-        text-align: center; 
-    }
-    
-    footer .img-footer {
-        margin: 10px 0; 
-    }
 
-    footer .btn-link {
-        margin-top: 20px; 
-    }
+body header .navegadores a:hover {
+    filter: drop-shadow(1px 1px 1px #F57B18);
+    border-radius: 100%;
+}
+
+body a {
+    color: #0a0a09;
+}
+
+body .barra {
+    animation: navbar linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 150px;
+}
+
+body .efecto-show {
+    view-timeline-name: --image;
+    view-timeline-axis: block;
+    animation-timeline: --image;
+    animation-name: show;
+    animation-range: entry 20% cover 40%;
+    animation-fill-mode: both;
+}
+
+.img-github {
+    width: 5dvh;
 }

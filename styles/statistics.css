@@ -1,5 +1,3 @@
-/* Otros estilos */
-
 /* Animaciones */
 @keyframes show {
     from {
@@ -52,10 +50,6 @@ body::after {
 }
 
 /* Estilos del header */
-#header {
-    background-color: rgb(29, 28, 28) !important;
-}
-
 #logoHeader {
     height: 80px;
 }
@@ -91,78 +85,61 @@ body::after {
     margin-left: 8px;
 }
 
-/* Contenedor de detalles de la tarjeta */
-main .card-detail-container {
-    display: flex;
-    align-items: center;
-    justify-content-center;
-    flex-wrap: wrap;
+/* Estilos del contenido principal */
+.centered-text {
+    color: rgb(43, 43, 43);
+    z-index: 1;
+}
+
+/* Efecto de imagen */
+.efecto-show {
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    z-index: 0;
+}
+
+/* Estilos para el contenedor del texto destacado */
+.highlighted-text-container {
+    background-color: rgba(0, 0, 0, 0.4);
     padding: 20px;
-    background: rgba(255, 255, 255, 0.8);
     border-radius: 15px;
+    margin: 20px;
+    text-align: center;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
 }
 
-.card-detail-container .card {
-    margin: 10px;
+.highlighted-text {
+    color: #ffffff;
+    font-size: 1.2em;
+    line-height: 1.5;
 }
 
-.character-card {
-    border: none;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 350px;
-    height: 350px;
+/* Estilos de la tabla */
+.table-container {
     position: relative;
 }
 
-.character-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 15px;
+.bottom-right-image {
     position: absolute;
-    top: 0;
-    left: 0;
+    bottom: -5vh;
+    right: -20ch;
+    width: 30vh;
 }
 
-
-
-.card-detail-container .card-body {
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    height: 350px;
-    overflow-y: auto;
-    max-width: 400px;
+th {
+    background-color: #F57B18 !important;
 }
 
-.card-title {
-    font-weight: bold !important;
-    font-size: 25px !important;
-    padding-bottom: 10px !important;
-    color: #333;
+.subTabla {
+    background-color: #ddbc60 !important;
 }
 
-.card-text {
-    font-weight: bold !important;
-    font-size: 19px !important;
-    color: #555;
-}
-
-.btn-back {
-    background-color: #F57B18;
-    border: none;
-    padding: 10px 20px;
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
-
-.btn-back:hover {
-    background-color: #DD7600;
+.table-responsive td {
+    white-space: nowrap;
 }
 
 /* Estilos del footer */
@@ -186,30 +163,50 @@ footer .sponsors {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 /* Estilos responsivos */
-@media screen and (min-width: 0px) and (max-width: 600px) {
-    main .card-detail-container {
-        flex-direction: column;
-    }
-
-    main .card-detail-container .card,
-    main .card-detail-container .card-body {
-        width: 100%;
-    }
-}
 @media screen and (max-width: 600px) {
     footer .sponsors {
-        flex-direction: column; 
-        text-align: center; 
+        flex-direction: column;
+        text-align: center;
     }
-    
+
     footer .img-footer {
-        margin: 10px 0; 
+        margin: 10px 0;
     }
 
     footer .btn-link {
-        margin-top: 20px; 
+        margin-top: 20px;
     }
+}
+
+body header .navegadores a:hover {
+    filter: drop-shadow(1px 1px 1px #F57B18);
+    border-radius: 100%;
+}
+
+body a {
+    color: #ee9e70;
+    font-weight: bold;
+}
+
+body .barra {
+    animation: navbar linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 150px;
+}
+
+body .efecto-show {
+    view-timeline-name: --image;
+    view-timeline-axis: block;
+    animation-timeline: --image;
+    animation-name: show;
+    animation-range: entry 20% cover 40%;
+    animation-fill-mode: both;
+}
+
+.img-github {
+    width: 5dvh;
 }

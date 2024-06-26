@@ -302,6 +302,20 @@ th {
         }
     }
 }
+@media screen and (max-width: 600px) {
+    footer .sponsors {
+        flex-direction: column; 
+        text-align: center; 
+    }
+    
+    footer .img-footer {
+        margin: 10px 0; 
+    }
+
+    footer .btn-link {
+        margin-top: 20px; 
+    }
+}
 
 body header .navegadores a:hover {
     filter: drop-shadow(1px 1px 1px #F57B18);
