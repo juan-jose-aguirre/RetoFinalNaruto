@@ -98,7 +98,13 @@
           </tr>
           </thead>
           <tbody>
-            <tr v-for="(element, index) in filteredCharacters" :key="element.id"
+            <tr v-if="filteredCharacters.length === 0">
+              <td colspan="4" class="text-center"><div class="alert alert-danger mt-3 d-block" role="alert">
+                There were no coincidences!
+              </div></td>
+            </tr>
+           
+            <tr v-else v-for="(element, index) in filteredCharacters" :key="element.id"
               :class="index % 2 === 0 ? 'table-warning' : 'table-dark'">
               <td class="align-middle text-center p-0 w-25">
                 <img :src="shield[index % shield.length].imagen" class="rounded img-fluid image my-4"

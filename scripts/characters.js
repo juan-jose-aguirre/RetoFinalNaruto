@@ -91,7 +91,7 @@ const CharacterPage = {
         return {
             personajes: [],
             paginaActual: 1,
-            numeroDePaginas: 15,
+            numeroDePaginas: 10,
             elementosPorPagina: 20,
             filtroNombre: "",
             personajesFiltrados: [],
@@ -140,6 +140,7 @@ const CharacterPage = {
             }
         },
         filtrarPersonajes() {
+            console.log(this.personajesPaginados)
             let filtro = this.filtroNombre.trim().toLowerCase();
             this.personajesFiltrados = this.personajes.filter(personaje => {
                 let coincide = true;
