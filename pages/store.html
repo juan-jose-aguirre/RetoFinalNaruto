@@ -20,19 +20,22 @@
     />
     <!-- Fin fuente de letra -->
     <link rel="shortcut icon" href="/assets/favicon.webp" type="image/x-icon" />
-    <link rel="stylesheet" href="/styles/index.css" />
+    <link rel="stylesheet" href="/styles\store.css" />
     <title>Naruto Proyect</title>
   </head>
   <body>
     <header class="sticky-top">
       <nav class="navbar navbar-expand-sm barra">
-        <div class="container-fluid w-100">
+        <div class="container-fluid w-100" id='narutoLogo'>
+
           <a class="navbar-brand w-25" href="#"
-            ><img
-              src="/assets/Naruto-Proyect-19-6-2024.png"
-              class="mw-100"
-              alt=""
-          /></a>
+              ><img
+                src="/assets\NARUTO-6-20-2024.png"
+                class="mw-100"
+                id="logoHeader"
+                alt=""
+            /></a>
+
           <button
             class="navbar-toggler"
             type="button"
@@ -46,47 +49,29 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <div class="d-flex w-100 justify-content-end">
-              <ul
-                class="navbar-nav d-flex align-items-sm-center text-center shadow navegadores"
-              >
+              <ul class="navbar-nav d-flex align-items-sm-center text-center shadow navegadores">
                 <li class="nav-item">
-                  <a class="nav-link text-white" href="#">Home</a>
+                  <a class="nav-link text-white" href="/index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-white" href="/pages/characters.html"
-                    >Characters</a
-                  >
+                  <a class="nav-link text-white" href="/pages/characters.html">Characters</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-white" href="/pages/clans.html"
-                    >Clans</a
-                  >
+                  <a class="nav-link text-white" href="/pages/clans.html">Clans</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-white" href="/pages/villages.html"
-                    >Villages</a
-                  >
+                  <a class="nav-link text-white" href="/pages\villanos.html">Villains</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-white" href="/pages/store.html"
-                    >Store</a
-                  >
+                  <a class="nav-link text-white" href="#">Store</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-white" href="/pages/statistics.html"
-                    >Statistics</a
-                  >
+                  <a class="nav-link text-white" href="/pages/statistics.html">Statistics</a>
                 </li>
                 <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    href="https://github.com/juan-jose-aguirre/RetoFinalNaruto"
-                    target="_blank"
-                    ><img
-                      class="rounded-circle img-github"
-                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR27kaHyBN4-iwj7H4pMmnE7kaC720Y-PYzKQ&s"
-                      alt=""
-                  /></a>
+                  <a class="nav-link" href="https://github.com/juan-jose-aguirre/RetoFinalNaruto" target="_blank">
+                    <img class="rounded-circle img-github" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR27kaHyBN4-iwj7H4pMmnE7kaC720Y-PYzKQ&s" alt="GitHub" />
+                  </a>
                 </li>
               </ul>
             </div>
@@ -96,44 +81,53 @@
     </header>
     <main id="store" class="container-fluid">
 
-      <div class="w-100 d-flex justify-content-center">
+      <!-- <div class="w-100 d-flex justify-content-center">
         <img
           class="w-50 efecto-show"
           src="/assets/welcome-19-6-2024.webp"
           alt="WelcomeToNarutoProyect"
         />
-      </div>
+      </div> -->
+      <div class="w-100 mb-4 text-center mt-5">
+        <h2 class="centered-text">Welcome to the store!</h2>
+        <div class="image-container">
+            <img class="w-50 efecto-show" src="/assets/divisor.png" alt="WelcomeToNarutoProyect" />
+        </div>
+    </div>
 
-      <div class="d-flex flex-wrap justify-content-around">
-        <div class="d-flex justify-content-center w-75">
-          <form class="d-flex flex-column flex-md-row gap-2" role="search">
+    <div class="d-flex flex-wrap justify-content-around">
+      <div class="d-flex flex-md-column justify-content-center w-100">
+        <form class="d-sm-flex flex-column flex-md-row gap-2 w-75 mx-auto" role="search">
+          <input
+            v-model="textoBuscar"
+            class="form-control me-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+            @input="filtroBuscar"
+          />
+          <div class="d-flex justify-content-center my-1" id="divRadios">
             <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
+              type="radio"
+              class="btn-check"
+              name="filtroRadio"
+              id="ascendente"
+              value="ascendente"
+              autocomplete="off"
+              checked
+              @click="filtrar()"
             />
-            <div class="d-flex justify-content-center mt-1" id="divRadios">
-              <input
-                type="radio"
-                class="btn-check"
-                name="filtroRadio"
-                id="ascendente"
-                value="ascendente"
-                autocomplete="off"
-                checked
-                @click="filtrar()"
-              />
-              <label class="btn" for="ascendente">upward</label>
-              <input
-                type="radio"
-                class="btn-check"
-                name="filtroRadio"
-                id="descendente"
-                value="descendente"
-                autocomplete="off"
-                @click="filtrar()"
-              />
+            <label class="btn" for="ascendente">upward</label>
+            <input
+              type="radio"
+              class="btn-check"
+              name="filtroRadio"
+              id="descendente"
+              value="descendente"
+              autocomplete="off"
+              @click="filtrar()"
+            />
+
               <label class="btn" for="descendente" >falling</label>
             </div>
             <select
@@ -361,122 +355,80 @@
   </div>
 </div>
     </main>
-    <footer class="bg-dark">
-      <h2 class="text-center text-white">Our sponsors</h2>
-      <div class="d-flex justify-content-center align-items-center">
-        <img
-          class="img-footer"
-          src="https://mindhubweb.com/img/logo_blanco.ca1738c0.webp"
-          alt=""
-        />
-        <img
-          class="img-footer"
-          src="https://marketing.rappi.com.mx/img/logo.png"
-          alt=""
-        />
+    <footer class="bg-dark text-white py-4">
+      <h2 class="text-center">Our sponsors</h2>
+      <div class="d-flex justify-content-center align-items-center position-relative">
+        <div class="d-flex justify-content-center align-items-center sponsors">
+          <img class="img-footer mx-2" src="https://mindhubweb.com/img/logo_blanco.ca1738c0.webp" alt="MindHub">
+          <img class="img-footer mx-2" src="https://marketing.rappi.com.mx/img/logo.png" alt="Rappi">
+        </div>
+        <button class="btn btn-link text-white mt-3 position-absolute end-0 me-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+          Meet the developers
+        </button>
       </div>
-      <button
-        class="btn btn-link"
-        type="button"
-        data-bs-toggle="offcanvas"
-        data-bs-target="#offcanvasExample"
-        aria-controls="offcanvasExample"
-      >
-        Meet the developers
-      </button>
-
-      <div
-        class="offcanvas offcanvas-start"
-        tabindex="-1"
-        id="offcanvasExample"
-        aria-labelledby="offcanvasExampleLabel"
-      >
+      
+      <div class="offcanvas offcanvas-start  " tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header">
           <h5 class="offcanvas-title" id="offcanvasExampleLabel">Workgroup</h5>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="offcanvas"
-            aria-label="Close"
-          ></button>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-        <div class="offcanvas-body d-flex flex-column text-center">
-          <div class="card mb-3" style="max-width: 540px">
+        <div class="offcanvas-body d-flex flex-column text-center  ">
+          <div class="card mb-3" style="max-width: 540px;">
             <div class="row g-0">
               <div class="col-md-4">
-                <img
-                  src="/assets/banner2.webp"
-                  class="img-fluid rounded-start"
-                  alt="..."
-                />
+                <img src="/assets/banner2.webp" class="img-fluid rounded-start" alt="Juan">
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h5 class="card-title">Juan</h5>
+                  <h5 class="card-title text-black">Juan</h5>
                 </div>
               </div>
             </div>
           </div>
-          <div class="card mb-3" style="max-width: 540px">
+          <div class="card mb-3" style="max-width: 540px;">
             <div class="row g-0">
               <div class="col-md-4">
-                <img
-                  src="/assets/banner2.webp"
-                  class="img-fluid rounded-start"
-                  alt="..."
-                />
+                <img src="/assets/banner2.webp" class="img-fluid rounded-start" alt="Harold">
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h5 class="card-title">Harold</h5>
+                  <h5 class="card-title text-black">Harold</h5>
                 </div>
               </div>
             </div>
           </div>
-          <div class="card mb-3" style="max-width: 540px">
+          <div class="card mb-3" style="max-width: 540px;">
             <div class="row g-0">
               <div class="col-md-4">
-                <img
-                  src="/assets/banner2.webp"
-                  class="img-fluid rounded-start"
-                  alt="..."
-                />
+                <img src="/assets/banner2.webp" class="img-fluid rounded-start" alt="Chantal">
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h5 class="card-title">Chantal</h5>
+                  <h5 class="card-title text-black">Chantal</h5>
                 </div>
               </div>
             </div>
           </div>
-          <div class="card mb-3" style="max-width: 540px">
+          <div class="card mb-3" style="max-width: 540px;">
             <div class="row g-0">
               <div class="col-md-4">
-                <img
-                  src="/assets/banner2.webp"
-                  class="img-fluid rounded-start"
-                  alt="..."
-                />
+                <img src="/assets/banner2.webp" class="img-fluid rounded-start" alt="Manuel">
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h5 class="card-title">Manuel</h5>
+                  <h5 class="card-title text-black">Manuel</h5>
                 </div>
               </div>
             </div>
           </div>
-          <div class="card mb-3" style="max-width: 540px">
+          <div class="card mb-3" style="max-width: 540px;">
             <div class="row g-0">
               <div class="col-md-4">
-                <img
-                  src="/assets/banner2.webp"
-                  class="img-fluid rounded-start"
-                  alt="..."
-                />
+                <img src="/assets/banner2.webp" class="img-fluid rounded-start" alt="Carlos">
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h5 class="card-title">Carlos</h5>
+                  <h5 class="card-title text-black">Carlos</h5>
                 </div>
               </div>
             </div>
