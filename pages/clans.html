@@ -13,26 +13,60 @@
   <!-- Fin fuente de letra -->
   <link rel="shortcut icon" href="/assets/favicon.webp" type="image/x-icon">
   <link rel="stylesheet" href="/styles/clans.css">
+  <link rel="stylesheet" href="/styles\test.css">
+
   <title>Clanes</title>
 </head>
 <body>
   <header class="sticky-top">
     <nav class="navbar navbar-expand-sm barra">
       <div class="container-fluid w-100" id='narutoLogo'>
-        <a class="navbar-brand w-25" href="#"><img src="/assets/NARUTO-6-20-2024.png" class="mw-100" id="logoHeader" alt=""></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+        <a class="navbar-brand w-25" href="#"
+            ><img
+              src="/assets\NARUTO-6-20-2024.png"
+              class="mw-100"
+              id="logoHeader"
+              alt=""
+          /></a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <div class="d-flex w-100 justify-content-end">
             <ul class="navbar-nav d-flex align-items-sm-center text-center shadow navegadores">
-              <li class="nav-item"><a class="nav-link text-white" href="/index.html">Home</a></li>
-              <li class="nav-item"><a class="nav-link text-white" href="/pages/characters.html">Characters</a></li>
-              <li class="nav-item"><a class="nav-link text-white" href="#">Clans</a></li>
-              <li class="nav-item"><a class="nav-link text-white" href="/pages/villanos.html">Villains</a></li>
-              <li class="nav-item"><a class="nav-link text-white" href="/pages/store.html">Store</a></li>
-              <li class="nav-item"><a class="nav-link text-white" href="/pages/statistics.html">Statistics</a></li>
-              <li class="nav-item"><a class="nav-link" href="https://github.com/juan-jose-aguirre/RetoFinalNaruto" target="_blank"><img class="rounded-circle img-github" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR27kaHyBN4-iwj7H4pMmnE7kaC720Y-PYzKQ&s" alt="GitHub"></a></li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="/index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="/pages/characters.html">Characters</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#">Clans</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="pages\villanos.html">Villains</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="/pages/store.html">Store</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="/pages/statistics.html">Statistics</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://github.com/juan-jose-aguirre/RetoFinalNaruto" target="_blank">
+                  <img class="rounded-circle img-github" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR27kaHyBN4-iwj7H4pMmnE7kaC720Y-PYzKQ&s" alt="GitHub" />
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -74,25 +108,14 @@
             </tr>
           </thead>
           <tbody>
-
-      //    <tr v-for="(element, index) in filteredCharacters" :key="element.id" :class="index % 2 === 0 ? 'table-warning' : 'table'">
-     //           <td class="align-middle text-center p-0 w-25"><img :src="shield[index % shield.length].imagen" class=" img-fluid image my-4" :alt="'Imagen del Clan ' + element.name"></td>
-          
-
-
             <tr v-if="filteredCharacters.length === 0">
               <td colspan="4" class="text-center"><div class="alert alert-danger mt-3 d-block" role="alert">
                 There were no coincidences!
               </div></td>
             </tr>
-           
-            <tr v-else v-for="(element, index) in filteredCharacters" :key="element.id"
-              :class="index % 2 === 0 ? 'table-warning' : 'table-dark'">
-
-              <td class="align-middle text-center p-0 w-25">
-                <img :src="shield[index % shield.length].imagen" class=" img-fluid image my-4"
-                  :alt="'Imagen del Clan ' + element.name">
-              </td>
+          <tr v-for="(element, index) in filteredCharacters" :key="element.id" :class="index % 2 === 0 ? 'table-warning' : 'table'">
+               <td class="align-middle text-center p-0 w-25"><img :src="shield[index % shield.length].imagen" class=" img-fluid image my-4" :alt="'Imagen del Clan ' + element.name"></td>
+          
 
               <td class="align-middle text-center">{{ element.name }}</td>
               <td class="align-middle text-center">{{ element.characters.length }} Members</td>
