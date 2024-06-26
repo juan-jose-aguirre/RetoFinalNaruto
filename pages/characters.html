@@ -17,6 +17,7 @@
     <!-- Fin fuente de letra -->
     <link rel="shortcut icon" href="/assets/favicon.webp" type="image/x-icon" />
     <link rel="stylesheet" href="/styles/characters.css" />
+    <link rel="stylesheet" href="/styles/test.css" />
 
     <title>characters</title>
 
@@ -26,7 +27,7 @@
     <header class="sticky-top">
         <nav class="navbar navbar-expand-sm barra">
             <div class="container-fluid w-100" id='narutoLogo'>
-                <a class="navbar-brand w-25" href="#">
+                <a class="navbar-brand img-fluid w-75" href="#">
                     <img src="/assets/NARUTO-6-20-2024.png" class="mw-100" id="logoHeader" alt="" />
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -74,12 +75,13 @@
               </p>
           </div>
           <div class="w-100 mb-4 text-center mt-5">
-            <h2 class="centered-text">Characters</h2>
+            <h2 class="centered-text d-none d-sm-block">Characters</h2>
             <div class="image-container">
-                <img class="w-50 efecto-show" src="/assets/divisor.png" alt="WelcomeToNarutoProyect" />
+              <img class="img-fluid w-75 d-none d-sm-block efecto-show" src="/assets/divisor.png" alt="WelcomeToNarutoProyect">
+              <img src="/assets/tituloPersonajes.png" class="d-sm-none img-fluid w-75" alt="">
             </div>
-        </div>
-        <div class="container mt-5 w-50">
+          </div>
+        <div class="container d-flex justify-content-center mt-5 w-50">
             <div class="btn-group" data-toggle="buttons">
                 <input type="checkbox" id="jinchūriki" v-model="filtroBestias" @change="filtrarPersonajes">
                 <label for="jinchūriki">jinchūriki</label>

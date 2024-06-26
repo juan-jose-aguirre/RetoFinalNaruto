@@ -350,3 +350,7 @@ body .efecto-show {
 th {
     border-left: #414141 2px solid;
 }
+.cardDetail{
+    min-width: 200px!important;
+
+}
