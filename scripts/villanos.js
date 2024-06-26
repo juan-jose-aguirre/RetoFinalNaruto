@@ -29,17 +29,18 @@ const karaPage = createApp({
             akatsuki: [],
             textoBuscar: "",
             categoriaSeleccionada: [],
-            karaBk:[],
+            karaBk: [],
             akatsukiBk: [],
-            combinedData:[],
-            resultadoFinal:[],
+            combinedData: [],
+            resultadoFinal: [],
+            personajesBK:this.karaBK.concat(this.akatsukiBk)
         }
     },
 
     created() {
         this.getData(urlKara)
         this.getData(urlAkatsuki)
-        
+
 
     },
 
@@ -48,7 +49,7 @@ const karaPage = createApp({
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
-                    
+
 
                     if (url.includes("kara")) {
                         this.kara = data.kara;
@@ -64,6 +65,7 @@ const karaPage = createApp({
 
                     }
 
+
                     let combinedData = [...this.akatsuki, ...this.kara];
                     console.log(combinedData);
 
@@ -74,27 +76,54 @@ const karaPage = createApp({
                         .filter(element => element.personal.affiliation.includes("Kara") || element.personal.affiliation.includes("Akatsuki"))
                         .map(element => element.personal.affiliation[0])
                     ));
-                    
+
 
                     console.log(this.categorias);
 
                 })
+        },
+        filtrochk() {
+            
+            let categorias = document.querySelectorAll("input[type=checkbox]:checked");
+            categorias = Array.from(categorias);
+            categorias = categorias.map(cat => cat.value);
+            console.log(categorias);
+            let arregloPrueba = []
+            if(categorias.length != 0 ){
+                for(let cate of categorias){
+                    for(let personaje of this.personajesBK){
+                        if(personaje.personal.affiliation.includes(cate)){
+                            arregloPrueba.push(personaje)
+                        }
+                    }
+                }
+                this.kara = [...arregloPrueba]
+            }else{
+                this.kara = [...this.karaBk];
+            }
+
+            // let chkCheck = document.querySelectorAll("input[type=checkbox]:checked")
+            // chkCheck = Array.from(chkCheck)
+            // chkCheck = chkCheck.map(chk1 => chk1.value)
+            // let eventosFiltrados = arreglo.filter(events => chkCheck.includes(events.category))
+            // return eventosFiltrados
+
         }
 
     },
     computed: {
-        superFiltro(){
+        superFiltro() {
             let filtroTexto = this.karaBk.filter(element => element.name.toLowerCase().includes(this.textoBuscar.toLowerCase()))
             let filtroTexto2 = this.akatsukiBk.filter(element => element.name.toLowerCase().includes(this.textoBuscar.toLowerCase()))
-            
+
             let resultadoFinal = filtroTexto.concat(filtroTexto2);
-            
-            console.log(resultadoFinal);
-            if (this.categoriaSeleccionada.length>0) {
-                this.kara = resultadoFinal.filter(element => this.categoriaSeleccionada.includes(this.categorias))
-            } else {
-                this.kara = resultadoFinal
-            }
+
+
+            // if (this.categoriaSeleccionada.length>0) {
+            //     this.kara = resultadoFinal.filter(element => this.categoriaSeleccionada.includes(this.categorias))
+            // } else {
+            // }
+            this.kara = resultadoFinal
         }
 
     }

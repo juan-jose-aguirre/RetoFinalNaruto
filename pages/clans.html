@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700&display=swap"
     rel="stylesheet" />
   <!-- Fin fuente de letra -->
   <link rel="shortcut icon" href="/assets/favicon.webp" type="image/x-icon" />
@@ -24,10 +24,24 @@
   <header class="sticky-top">
     <nav class="navbar navbar-expand-sm barra">
       <div class="container-fluid w-100" id='narutoLogo'>
-        <a class="navbar-brand w-25" href="/index.html"><img src="/assets/NARUTO-6-20-2024.png" class="mw-100"
-            alt="Naruto Logo" /></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+        <a class="navbar-brand w-25" href="#"
+            ><img
+              src="/assets\NARUTO-6-20-2024.png"
+              class="mw-100"
+              id="logoHeader"
+              alt=""
+          /></a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -40,10 +54,10 @@
                 <a class="nav-link text-white" href="/pages/characters.html">Characters</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" href="/pages/clans.html">Clans</a>
+                <a class="nav-link text-white" href="#">Clans</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" href="/pages/villages.html">Villages</a>
+                <a class="nav-link text-white" href="/pages\villanos.html">Villains</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-white" href="/pages/store.html">Store</a>
@@ -53,9 +67,7 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="https://github.com/juan-jose-aguirre/RetoFinalNaruto" target="_blank">
-                  <img class="rounded-circle img-github"
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR27kaHyBN4-iwj7H4pMmnE7kaC720Y-PYzKQ&s"
-                    alt="GitHub" />
+                  <img class="rounded-circle img-github" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR27kaHyBN4-iwj7H4pMmnE7kaC720Y-PYzKQ&s" alt="GitHub" />
                 </a>
               </li>
             </ul>
@@ -65,12 +77,17 @@
     </nav>
   </header>
   <main id="containerVue">
-    <div class="d-flex flex-column align-items-center text-center">
-      <img class="img-fluid w-25 my-4" src="/assets/tituloClans.png" alt="Título Clanes">
+    <div class="d-flex flex-column align-items-center text-center mt-4">
       <p class="fw-bold w-75">
         In the vast world of Naruto, clans play a crucial role in both the story and the development of characters. Each
         clan has its own history, special abilities, and legacy that have left an indelible mark on the ninja world.
       </p>
+      <div class="w-100 mb-4 text-center mt-5">
+        <h2 class="centered-text">Clans</h2>
+        <div class="image-container">
+          <img class="w-50 efecto-show" src="/assets/divisor.png" alt="WelcomeToNarutoProyect" />
+        </div>
+      </div>
     </div>
 
     <div class="container">
@@ -88,16 +105,17 @@
           <thead>
             <tr>
               <th class="text-white text-center" scope="col"><img class=" img-fluid"
-                src="/assets/clansTable1.png" alt=""></th>
-            <th class=" text-white text-center" scope="col"><img class="img-fluid"
-                src="/assets/clansTable2.png" alt=""></th>
-            <th class=" text-white text-center" scope="col"><img class="img-fluid"
-                src="/assets/clansTable3.png" alt=""></th>
-            <th class=" text-white text-center" scope="col"><img class="img-fluid"
-                src="/assets/clansTable4.png" alt=""></th>
-          </tr>
+                  src="/assets/clansTable1.png" alt=""></th>
+              <th class=" text-white text-center" scope="col"><img class="img-fluid"
+                  src="/assets/clansTable2.png" alt=""></th>
+              <th class=" text-white text-center" scope="col"><img class="img-fluid"
+                  src="/assets/clansTable3.png" alt=""></th>
+              <th class=" text-white text-center" scope="col"><img class="img-fluid"
+                  src="/assets/clansTable4.png" alt=""></th>
+            </tr>
           </thead>
           <tbody>
+
             <tr v-if="filteredCharacters.length === 0">
               <td colspan="4" class="text-center"><div class="alert alert-danger mt-3 d-block" role="alert">
                 There were no coincidences!
@@ -106,15 +124,16 @@
            
             <tr v-else v-for="(element, index) in filteredCharacters" :key="element.id"
               :class="index % 2 === 0 ? 'table-warning' : 'table-dark'">
+
               <td class="align-middle text-center p-0 w-25">
-                <img :src="shield[index % shield.length].imagen" class="rounded img-fluid image my-4"
+                <img :src="shield[index % shield.length].imagen" class=" img-fluid image my-4"
                   :alt="'Imagen del Clan ' + element.name">
               </td>
               <td class="align-middle text-center">{{ element.name }}</td>
               <td class="align-middle text-center">{{ element.characters.length }} Members</td>
               <td class="align-middle text-center">
                 <a :href="'detalleClanes.html?id=' + element.id"
-                  :class="index % 2 === 0 ? 'btn btn-outline-dark' : 'btn btn-outline-warning'" class="boton btn-lg">See
+                  :class="index % 2 === 0 ? 'btn btn-outline' : 'btn btn-outline'" id='seemore' class="boton btn-lg">See
                   more...</a>
               </td>
             </tr>
@@ -124,31 +143,47 @@
     </div>
   </main>
 
-  <footer class="bg-dark">
-    <h2 class="text-center text-white">Our sponsors</h2>
-    <div class="d-flex justify-content-center align-items-center">
-      <img class="img-footer" src="https://mindhubweb.com/img/logo_blanco.ca1738c0.webp" alt="">
-      <img class="img-footer" src="https://marketing.rappi.com.mx/img/logo.png" alt="">
-    </div>
-    <button class="btn btn-link" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
-      aria-controls="offcanvasExample">
-      Meet the developers
-    </button>
 
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+ <div class="GoUp"> 
+  
+    <span class="go-up-text">Go Up</span>
+   
+    <a href="#top">
+    <img src="/assets/GoUp.png" alt="Go Up Icon">
+
+  </a>
+</div> 
+
+
+
+  <footer class="bg-dark text-white py-4">
+    <h2 class="text-center">Our sponsors</h2>
+    <div class="d-flex justify-content-center align-items-center position-relative">
+      <div class="d-flex justify-content-center align-items-center sponsors">
+        <img class="img-footer mx-2" src="https://mindhubweb.com/img/logo_blanco.ca1738c0.webp" alt="MindHub">
+        <img class="img-footer mx-2" src="https://marketing.rappi.com.mx/img/logo.png" alt="Rappi">
+      </div>
+      <button class="btn btn-link text-white mt-3 position-absolute end-0 me-3" type="button"
+        data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+        Meet the developers
+      </button>
+    </div>
+
+    <div class="offcanvas offcanvas-start  " tabindex="-1" id="offcanvasExample"
+      aria-labelledby="offcanvasExampleLabel">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasExampleLabel">Workgroup</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
-      <div class="offcanvas-body d-flex flex-column text-center">
+      <div class="offcanvas-body d-flex flex-column text-center  ">
         <div class="card mb-3" style="max-width: 540px;">
           <div class="row g-0">
             <div class="col-md-4">
-              <img src="/assets/banner2.webp" class="img-fluid rounded-start" alt="...">
+              <img src="/assets/banner2.webp" class="img-fluid rounded-start" alt="Juan">
             </div>
             <div class="col-md-8">
               <div class="card-body">
-                <h5 class="card-title">Juan</h5>
+                <h5 class="card-title text-black">Juan</h5>
               </div>
             </div>
           </div>
@@ -156,11 +191,11 @@
         <div class="card mb-3" style="max-width: 540px;">
           <div class="row g-0">
             <div class="col-md-4">
-              <img src="/assets/banner2.webp" class="img-fluid rounded-start" alt="...">
+              <img src="/assets/banner2.webp" class="img-fluid rounded-start" alt="Harold">
             </div>
             <div class="col-md-8">
               <div class="card-body">
-                <h5 class="card-title">Harold</h5>
+                <h5 class="card-title text-black">Harold</h5>
               </div>
             </div>
           </div>
@@ -168,11 +203,11 @@
         <div class="card mb-3" style="max-width: 540px;">
           <div class="row g-0">
             <div class="col-md-4">
-              <img src="/assets/banner2.webp" class="img-fluid rounded-start" alt="...">
+              <img src="/assets/banner2.webp" class="img-fluid rounded-start" alt="Chantal">
             </div>
             <div class="col-md-8">
               <div class="card-body">
-                <h5 class="card-title">Chantal</h5>
+                <h5 class="card-title text-black">Chantal</h5>
               </div>
             </div>
           </div>
@@ -180,11 +215,11 @@
         <div class="card mb-3" style="max-width: 540px;">
           <div class="row g-0">
             <div class="col-md-4">
-              <img src="/assets/banner2.webp" class="img-fluid rounded-start" alt="...">
+              <img src="/assets/banner2.webp" class="img-fluid rounded-start" alt="Manuel">
             </div>
-            <div class="col-md-8">
+            <div class.col-md-8">
               <div class="card-body">
-                <h5 class="card-title">Manuel</h5>
+                <h5 class="card-title text-black">Manuel</h5>
               </div>
             </div>
           </div>
@@ -192,11 +227,11 @@
         <div class="card mb-3" style="max-width: 540px;">
           <div class="row g-0">
             <div class="col-md-4">
-              <img src="/assets/banner2.webp" class="img-fluid rounded-start" alt="...">
+              <img src="/assets/banner2.webp" class="img-fluid rounded-start" alt="Carlos">
             </div>
             <div class="col-md-8">
               <div class="card-body">
-                <h5 class="card-title">Carlos</h5>
+                <h5 class="card-title text-black">Carlos</h5>
               </div>
             </div>
           </div>
