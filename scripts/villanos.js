@@ -33,7 +33,7 @@ const karaPage = createApp({
             akatsukiBk: [],
             combinedData: [],
             resultadoFinal: [],
-            personajesBK:this.karaBK.concat(this.akatsukiBk)
+            //personajesBK:this.karaBK.concat(this.akatsukiBk)
         }
     },
 
@@ -84,7 +84,7 @@ const karaPage = createApp({
         },
         filtrochk() {
             
-            let categorias = document.querySelectorAll("input[type=checkbox]:checked");
+            /* let categorias = document.querySelectorAll("input[type=checkbox]:checked");
             categorias = Array.from(categorias);
             categorias = categorias.map(cat => cat.value);
             console.log(categorias);
@@ -100,13 +100,9 @@ const karaPage = createApp({
                 this.kara = [...arregloPrueba]
             }else{
                 this.kara = [...this.karaBk];
-            }
+            } */
 
-            // let chkCheck = document.querySelectorAll("input[type=checkbox]:checked")
-            // chkCheck = Array.from(chkCheck)
-            // chkCheck = chkCheck.map(chk1 => chk1.value)
-            // let eventosFiltrados = arreglo.filter(events => chkCheck.includes(events.category))
-            // return eventosFiltrados
+            
 
         }
 
