@@ -222,8 +222,6 @@ const app = createApp({
         }
       },
       toBuy(producto){
-          console.log(producto);
-          console.log(this.ListaProductos);
           for(let productoDisponible of this.ListaProductos){
             if(productoDisponible == producto){
               if(!this.listaCarrito.includes(producto)){
@@ -234,12 +232,10 @@ const app = createApp({
               
             }
           }
-          console.log(this.listaCarrito);
           localStorage.setItem("listaCarrito",JSON.stringify(this.listaCarrito));
           this.listaCarrito = JSON.parse(localStorage.getItem("listaCarrito"))
       },
       filtroBuscar(){
-        console.log(this.textoBuscar);
         if(this.textoBuscar.length != 0){
           this.ListaProductos = [...this.ListaProductosBK].filter(producto => producto.name.toLowerCase().includes(this.textoBuscar.trim().toLowerCase()))
           this.filtrar()
@@ -249,11 +245,8 @@ const app = createApp({
         }
       }
 ,      filtrar(){
-        // console.log(sentido);
         let sentido = document.querySelector("input[type=radio]:checked").value;
         let propiedad = document.querySelector("#filtroSelect").value;
-        console.log(sentido);
-        console.log(propiedad);
         if(propiedad != "none"){
           if(sentido == "ascendente"){
             if(propiedad == "name"){
@@ -261,8 +254,6 @@ const app = createApp({
             }else{
               this.ListaProductos = this.ListaProductos.sort((a,b) => a[propiedad] - b[propiedad]);
             }
-
-
           }else{
             if(propiedad == "name"){
               this.ListaProductos = this.ListaProductos.sort((a,b) => a[propiedad].localeCompare(b[propiedad]));
@@ -273,7 +264,6 @@ const app = createApp({
         }
       },
       limpiarCarrito(producto){
-        console.log(this.listaCarrito.length);
         if(this.listaCarrito.length == 1){
 
           for(let productoDisponible of this.ListaProductos){
@@ -290,40 +280,23 @@ const app = createApp({
             }
           }
           let index = 0;
-          console.log(this.listaCarrito);
           for(let productoCarrito of this.listaCarrito){
             if(productoCarrito.id == producto.id){
               index = this.listaCarrito.indexOf(productoCarrito);
             }
           }
-          // for(let productoDisponible of this.ListaProductos){
-          //   if(productoDisponible.id == producto.id){
-          //     productoDisponible.toBuy = !productoDisponible.toBuy;
-          //   }
-          // }
-          console.log(index);
           this.listaCarrito.splice(index,1);
-          console.log(this.listaCarrito);
           localStorage.setItem("listaCarrito",JSON.stringify(this.listaCarrito))
         }
-        console.log(this.listaCarrito);
-        console.log(this.ListaProductos);
       },
       vaciarCarrito(){
         for(let productoDisponible of this.ListaProductos){
-          console.log(productoDisponible.toBuy);
           productoDisponible.toBuy = false; 
         }
         this.listaCarrito = [];
         localStorage.clear();
       }
   },
-  computed:{
-      
-  }
+  computed:{}
 }).mount("#store");
 
-
-// function getLike(id){
-//     console.log(id);
-// }

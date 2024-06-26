@@ -95,7 +95,7 @@ body::after {
 main .card-detail-container {
     display: flex;
     align-items: center;
-    justify-content-center;
+    justify-content:center;
     flex-wrap: wrap;
     padding: 20px;
     background: rgba(255, 255, 255, 0.8);
