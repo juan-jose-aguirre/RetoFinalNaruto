@@ -9,8 +9,6 @@ const CharacterPage = {
             elementosPorPagina: 20,
             filtroNombre: "",
             personajesFiltrados: [],
-            filtroBestias: false,
-            filtroOjos: false,
             filtroShippuden: false,
             filtroBoruto:false,
             filtroNaruto:false
@@ -70,16 +68,8 @@ const CharacterPage = {
                 if (this.filtroBoruto && personaje.debut && personaje.debut.anime) {
                     coincide = coincide && personaje.debut.anime.toLowerCase().includes("boruto");
                 }
-                
-                if (this.filtrobestias) {
-                    coincide = coincide && personaje.personal.jinchūriki && personaje.personal.jinchūriki.length > 0;
-                }
                 if (this.filtroNaruto && personaje.debut && personaje.debut.anime) {
                     coincide = coincide && personaje.debut.anime.toLowerCase().includes("naruto chapter");
-                }
-
-                if (this.filtroOjos) {
-                    coincide = coincide && personaje.personal.kekkeiGenkai && personaje.personal.kekkeiGenkai.length > 0;
                 }
                 return coincide;
             });

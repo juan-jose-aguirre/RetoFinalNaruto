@@ -83,12 +83,8 @@
           </div>
         <div class="container d-flex justify-content-center mt-5 w-50">
             <div class="btn-group" data-toggle="buttons">
-                <input type="checkbox" id="jinchūriki" v-model="filtroBestias" @change="filtrarPersonajes">
-                <label for="jinchūriki">jinchūriki</label>
                 <input type="checkbox" id="boruto" v-model="filtroBoruto" @change="filtrarPersonajes">
                 <label for="boruto">boruto</label>
-                <input type="checkbox" id="kekkeiGenkai" v-model="filtroOjos" @change="filtrarPersonajes">
-                <label for="kekkeiGenkai">kekkeiGenkai</label>
                 <input type="checkbox" id="narutoShippuden" v-model="filtroShippuden" @change="filtrarPersonajes">
                 <label for="narutoShippuden">Naruto Shippuden</label>
                 <input type="checkbox" id="naruto" v-model="filtroNaruto" @change="filtrarPersonajes">
@@ -123,7 +119,10 @@
             <div class="row justify-content-center align-items-center">
                 <a :href="'detallePersonaje.html?id='+personaje.id" class="d-flex flex-column align-items-center text-center mb-4 card-link" v-for="personaje in personajesPaginados" :key="personaje.id">
                     <div class="cardClans shadow">
-                        <img :src="personaje.images.length ? personaje.images[0] : '/assets/favicon.webp'" :alt="'Imagen de ' + personaje.name">
+                      <!-- <img :src="personaje.images.length ? personaje.images[0] : ''" :alt="'Imagen de ' + personaje.name"> -->
+                      <img v-if="personaje.images.length != 0 && personaje.id != 0 && personaje.id != 8 && personaje.id != 33 && personaje.id != 25 && personaje.id != 60 && personaje.id != 61" :src="personaje.images[0]" :alt="'Imagen de ' + personaje.name">
+                      <img v-if="personaje.images.length == 0 || personaje.id == 0 || personaje.id == 8 || personaje.id == 33 || personaje.id == 25 || personaje.id == 60 || personaje.id == 61" src="/assets/silueta.webp" :alt="'Imagen de ' + personaje.name">
+                      <!-- <img v-if="personaje.id == 0" src="/assets/favicon.webp" :alt="'Imagen de ' + personaje.name"> -->
                         <div class="card-body">
                             <h5 class="card-title">{{ personaje.name }}</h5>
                         </div>
