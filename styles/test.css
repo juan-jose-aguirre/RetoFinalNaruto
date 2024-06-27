@@ -137,6 +137,7 @@ main {
     color: rgb(43, 43, 43); 
     z-index: 1;
     font-family: 'Ninja Naruto', Roboto;
+    font-size: 4vh;
 }
 
 .efecto-show {
