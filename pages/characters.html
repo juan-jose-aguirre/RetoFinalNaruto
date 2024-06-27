@@ -17,6 +17,7 @@
     <!-- Fin fuente de letra -->
     <link rel="shortcut icon" href="/assets/favicon.webp" type="image/x-icon" />
     <link rel="stylesheet" href="/styles/characters.css" />
+    <link rel="stylesheet" href="/styles/test.css" />
 
     <title>characters</title>
 
@@ -26,7 +27,7 @@
     <header class="sticky-top">
         <nav class="navbar navbar-expand-sm barra">
             <div class="container-fluid w-100" id='narutoLogo'>
-                <a class="navbar-brand w-25" href="#">
+                <a class="navbar-brand img-fluid w-75" href="#">
                     <img src="/assets/NARUTO-6-20-2024.png" class="mw-100" id="logoHeader" alt="" />
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -74,19 +75,17 @@
               </p>
           </div>
           <div class="w-100 mb-4 text-center mt-5">
-            <h2 class="centered-text">Characters</h2>
+            <h2 class="centered-text d-none d-sm-block">Characters</h2>
             <div class="image-container">
+
                 <img id='pergamino' class="w-50 efecto-show" src="/assets/divisor.png" alt="WelcomeToNarutoProyect" />
             </div>
         </div>
         <div class="container w-50">
+
             <div class="btn-group" data-toggle="buttons">
-                <input type="checkbox" id="jinchūriki" v-model="filtroBestias" @change="filtrarPersonajes">
-                <label for="jinchūriki">jinchūriki</label>
                 <input type="checkbox" id="boruto" v-model="filtroBoruto" @change="filtrarPersonajes">
                 <label for="boruto">boruto</label>
-                <input type="checkbox" id="kekkeiGenkai" v-model="filtroOjos" @change="filtrarPersonajes">
-                <label for="kekkeiGenkai">kekkeiGenkai</label>
                 <input type="checkbox" id="narutoShippuden" v-model="filtroShippuden" @change="filtrarPersonajes">
                 <label for="narutoShippuden">Naruto Shippuden</label>
                 <input type="checkbox" id="naruto" v-model="filtroNaruto" @change="filtrarPersonajes">
@@ -118,10 +117,19 @@
                 </ul>
             </nav>
 
+            <div v-if="personajesPaginados.length == 0" class="w-100">
+              <div class="alert alert-danger mt-3 d-block w-50 mx-auto" role="alert">
+                There were no coincidences!
+              </div>
+            </div>
             <div class="row justify-content-center align-items-center highlighted-text-container">
+
                 <a :href="'detallePersonaje.html?id='+personaje.id" class="d-flex flex-column align-items-center text-center mb-4 card-link" v-for="personaje in personajesPaginados" :key="personaje.id">
                     <div class="cardClans shadow">
-                        <img :src="personaje.images.length ? personaje.images[0] : '/assets/favicon.webp'" :alt="'Imagen de ' + personaje.name">
+                      <!-- <img :src="personaje.images.length ? personaje.images[0] : ''" :alt="'Imagen de ' + personaje.name"> -->
+                      <img v-if="personaje.images.length != 0 && personaje.id != 0 && personaje.id != 8 && personaje.id != 33 && personaje.id != 25 && personaje.id != 60 && personaje.id != 61" :src="personaje.images[0]" :alt="'Imagen de ' + personaje.name">
+                      <img v-if="personaje.images.length == 0 || personaje.id == 0 || personaje.id == 8 || personaje.id == 33 || personaje.id == 25 || personaje.id == 60 || personaje.id == 61" src="/assets/silueta.webp" :alt="'Imagen de ' + personaje.name">
+                      <!-- <img v-if="personaje.id == 0" src="/assets/favicon.webp" :alt="'Imagen de ' + personaje.name"> -->
                         <div class="card-body">
                             <h5 class="card-title">{{ personaje.name }}</h5>
                         </div>

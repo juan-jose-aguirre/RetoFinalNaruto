@@ -1,89 +1,3 @@
-
-// const { createApp } = Vue;
-
-// const CharacterPage = {
-//     data() {
-//         return {
-//             personajes: [],
-//             paginaActual: 1,
-//             numeroDePaginas:15,
-//             elementosPorPagina: 20,
-//             filtroNombre: "",
-//             personajesFiltrados: [],
-//             filtroBestias: false,
-//             filtroOjos: false,
-//             filtroVillas: false
-//         };
-//     },
-//     computed: {
-//         personajesPaginados() {
-//             let indiceInicio = (this.paginaActual - 1) * this.elementosPorPagina;
-//             let indiceFin = indiceInicio + this.elementosPorPagina;
-//             return this.personajesFiltrados.slice(indiceInicio, indiceFin);
-//         },
-//         totalPaginas() {
-//             return Math.ceil(this.personajesFiltrados.length / this.elementosPorPagina);
-//         },
-//         paginas() {
-//             let arrayPaginas = [];
-
-//             let inicioBloque = Math.max(1, this.paginaActual - Math.floor(this.numeroDePaginas / 2));
-//             let finBloque = Math.min(inicioBloque + this.numeroDePaginas - 1, this.totalPaginas);
-
-//             for (let i = inicioBloque; i <= finBloque; i++) {
-//                 arrayPaginas.push(i);
-//             }
-//             return arrayPaginas;
-//         }
-
-//     },
-//     methods: {
-
-//         cargarPersonajes() {
-//             fetch('https://narutodb.xyz/api/character?page=1&limit=1400')
-//                 .then(response => response.json())
-//                 .then(data => {
-//                     this.personajes = data.characters;
-//                     this.filtrarPersonajes();
-//                     console.log(data)
-//                 })
-//                 .catch(error => {
-//                     console.error('Error al obtener los personajes:', error);
-//                 });
-//         },
-//         cambiarPagina(pagina) {
-//             if (pagina > 0 && pagina <= this.totalPaginas) {
-//                 this.paginaActual = pagina;
-//             }
-//         },
-//         filtrarPersonajes() {
-//             let filtro = this.filtroNombre.trim().toLowerCase();
-//             this.personajesFiltrados = this.personajes.filter(personaje => {
-//                 let coincide = true;
-//                 if (filtro) {
-//                     coincide = personaje.name.toLowerCase().includes(filtro);
-//                 }
-
-//                 if (this.filtroBestias) {
-//                     coincide = coincide && personaje.personal.classification && personaje.personal.classification.includes('Jinchuriki');
-//                 }
-//                 console.log(this.filtroBestias)
-
-//                 if (this.filtroOjos) {
-//                     coincide = coincide && personaje.personal.kekkeiGenkai && personaje.personal.kekkeiGenkai.length > 0;
-//                 }
-
-//                 return coincide;
-//             });
-//             this.paginaActual = 1;
-//         }
-//     },
-//     mounted() {
-//         this.cargarPersonajes();
-//     }
-// };
-
-// createApp(CharacterPage).mount('#charactersVue');
 const { createApp } = Vue;
 
 const CharacterPage = {
@@ -95,8 +9,6 @@ const CharacterPage = {
             elementosPorPagina: 20,
             filtroNombre: "",
             personajesFiltrados: [],
-            filtroBestias: false,
-            filtroOjos: false,
             filtroShippuden: false,
             filtroBoruto:false,
             filtroNaruto:false
@@ -128,7 +40,6 @@ const CharacterPage = {
                 .then(data => {
                     this.personajes = data.characters;
                     this.filtrarPersonajes();
-                    console.log(data);
                 })
                 .catch(error => {
                     console.error('Error al obtener los personajes:', error);
@@ -140,7 +51,6 @@ const CharacterPage = {
             }
         },
         filtrarPersonajes() {
-            console.log(this.personajesPaginados)
             let filtro = this.filtroNombre.trim().toLowerCase();
             this.personajesFiltrados = this.personajes.filter(personaje => {
                 let coincide = true;
@@ -150,29 +60,16 @@ const CharacterPage = {
 
                 if (this.filtroBestias && personaje.personal && typeof personaje.personal.classification === 'string') {
                     coincide = coincide && personaje.personal.classification.toLowerCase() === 'jinchūriki';
-                    console.log(personaje.personal.classification.toLowerCase() === 'jinchūriki')
                 }
 
                 if (this.filtroShippuden && personaje.debut && personaje.debut.anime) {
                     coincide = coincide && personaje.debut.anime.toLowerCase().includes("naruto shippūden");
-                    console.log(personaje.debut.anime.toLowerCase().includes("naruto shippūden"))
                 }
                 if (this.filtroBoruto && personaje.debut && personaje.debut.anime) {
                     coincide = coincide && personaje.debut.anime.toLowerCase().includes("boruto");
-                    console.log(personaje.debut.anime.toLowerCase().includes("boruto"))
-                }
-                
-                if (this.filtrobestias) {
-                    coincide = coincide && personaje.personal.jinchūriki && personaje.personal.jinchūriki.length > 0;
-                    console.log(personaje.personal.jinchūriki.length > 0)
                 }
                 if (this.filtroNaruto && personaje.debut && personaje.debut.anime) {
                     coincide = coincide && personaje.debut.anime.toLowerCase().includes("naruto chapter");
-                    console.log(personaje.debut.anime.toLowerCase().includes("naruto chapter"))
-                }
-
-                if (this.filtroOjos) {
-                    coincide = coincide && personaje.personal.kekkeiGenkai && personaje.personal.kekkeiGenkai.length > 0;
                 }
                 return coincide;
             });

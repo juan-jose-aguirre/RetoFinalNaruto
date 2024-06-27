@@ -15,13 +15,11 @@ function getData(done) {
 
 idDetails = window.location.href
 idDetails = new URL(idDetails).searchParams.get("id")
-console.log(idDetails);
 
 getData(datos => {
-    console.log(datos);
     let events = datos.characters
-    console.log(events);
     let tarjeta = events.filter(events => events.id == idDetails)
+    console.log(tarjeta);
     tarjeta.forEach(events => {
         let img = document.getElementById("img")
         let name = document.getElementById("name").innerHTML = `${events.name}`
@@ -33,12 +31,12 @@ getData(datos => {
 
 
         // img
-        if (events.images !== undefined && events.images.length > 0) {
+        if (events.images !== undefined && events.images.length > 0 && events.id != 0 && events.id != 8) {
             img.innerHTML = `<img id="imgs" src="${events.images[0]}" class="card-img-top" alt="${events.name}">`
             
             
         } else {
-            img.style.display = "none";
+            img.innerHTML = `<img id="imgs" src="/assets/silueta.webp" class="card-img-top" alt="${events.name}">`
         }
 
         // jutsu
@@ -77,18 +75,6 @@ getData(datos => {
             status.style.display = "none";
         }
 
-
-
-
-
-
-
     })
-
-
-
-    console.log(idDetails);
-    console.log(tarjeta);
-
 
 })
