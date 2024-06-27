@@ -118,11 +118,13 @@
             </nav>
 
             <div v-if="personajesPaginados.length == 0" class="w-100">
-              <div class="alert alert-danger mt-3 d-block w-50 mx-auto" role="alert">
-                There were no coincidences!
+              <div class="alert alert-danger mt-3 d-block w-50 mx-auto d-flex justify-content-center align-items-center flex-column text-center" role="alert">
+                There were no coincidences! 
+                <img class='w-50' src="/assets\pngwing.com.png">
+
               </div>
             </div>
-            <div class="row justify-content-center align-items-center highlighted-text-container">
+            <div v-if="personajesPaginados.length !== 0" class="row justify-content-center align-items-center highlighted-text-container">
 
                 <a :href="'detallePersonaje.html?id='+personaje.id" class="d-flex flex-column align-items-center text-center mb-4 card-link" v-for="personaje in personajesPaginados" :key="personaje.id">
                     <div class="cardClans shadow">
