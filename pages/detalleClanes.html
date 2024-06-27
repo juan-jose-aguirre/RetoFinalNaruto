@@ -57,7 +57,7 @@
                 <a class="nav-link text-white" href="/pages/clans.html">Clans</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" href="pages\villanos.html">Villains</a>
+                <a class="nav-link text-white" href="/pages/villanos.html">Villains</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-white" href="/pages/store.html">Store</a>
@@ -103,9 +103,10 @@
         class="d-flex flex-column align-items-center text-center mb-4 card-link" v-for="element in filteredCharacters"
         :key="element.id">
         <div class="cardClans shadow" style="width: 18rem;">
+          
           <img v-if="element.images.length != 0" :src="element.images[0]" class="card-img-top"
             :alt="'Imagen de ' + element.name">
-          <img v-if="element.images.length == 0" src="../assets/charactersCard.webp" class="card-img-top"
+          <img v-if="element.images.length == 0" src="../assets/silueta.webp" class="card-img-top"
             :alt="'Imagen de ' + element.name">
           <div class="card-body">
             <h5 class="card-title">{{ element.name }}</h5>
