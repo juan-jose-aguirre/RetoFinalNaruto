@@ -32,10 +32,12 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('https://wallpapercave.com/wp/wp7237677.jpg') no-repeat center center fixed;
+    background-image: url('/assets/TESTfondo.webp');
+    background-repeat: no-repeat;
+    background-position: center center;
     background-size: cover;
-    opacity: 0.4; 
-    z-index: -2; 
+    opacity: 0.4;
+    z-index: -2;
 }
 
 body::after {
@@ -45,15 +47,11 @@ body::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(188, 202, 224, 0.288); 
+    background: rgba(188, 202, 224, 0.288);
     z-index: -1;
 }
 
 /* Estilos del header */
-#header {
-    background-color: rgb(29, 28, 28) !important;
-}
-
 #logoHeader {
     height: 80px;
 }
@@ -104,7 +102,7 @@ body::after {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: rgb(43, 43, 43); 
+    color: rgb(43, 43, 43);
     z-index: 1;
 }
 
@@ -115,62 +113,16 @@ body::after {
     z-index: 0;
 }
 
-#textoHome {
-    color: antiquewhite;
+.card{
+    background-color: rgba(199, 199, 199, 0.521) !important;
+
 }
 
-/* Banner section */
-#explore {
-    color: rgb(0, 0, 0);
-    border: 3px solid black;
-    width: 40%;
-}
-
-.banner-section {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 300px;
-    margin-top: 50px;
-}
-
-.banner-link {
-    flex: 1;
-    height: 100%;
-    display: block;
-}
-
-.banner-item {
-    background-size: cover;
-    background-position: center;
-    height: 100%;
-    position: relative;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.banner-item:hover {
-    transform: scale(1.05);
-    opacity: 0.7; 
-}
-
-.banner-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 2rem;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    opacity: 1; 
-}
-
-/* cartas */
 .card-link {
     text-decoration: none;
     color: inherit;
-    flex: 1 0 21%; 
-    margin: 5px; 
+    flex: 1 0 21%;
+    margin: 5px;
 }
 
 .cardClans {
@@ -180,7 +132,7 @@ body::after {
     position: relative;
     overflow: hidden;
     transition: transform 0.3s ease, opacity 0.3s ease;
-    margin: 5px; 
+    margin: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     background-color: rgba(255, 255, 255, 0.8);
     border: 2px solid rgba(255, 255, 255, 0.5);
@@ -231,9 +183,9 @@ footer h2 {
 }
 
 footer .img-footer {
-    height: 60px; 
+    height: 60px;
     width: auto;
-    margin: 0 15px; 
+    margin: 0 15px;
 }
 
 footer .sponsors {
@@ -242,18 +194,7 @@ footer .sponsors {
     align-items: center;
 }
 
-/* Estilos de la tabla */
-.table-container {
-    position: relative;
-}
 
-th {
-    background-color: #F57B18 !important;
-}
-
-.subTabla {
-    background-color: #ddbc60 !important;
-}
 
 .image {
     width: 50px;
@@ -268,7 +209,7 @@ th {
     border: 2px solid orange;
 }
 
-.boton {    
+.boton {
     transition: all 0.3s;
 }
 
@@ -276,7 +217,7 @@ th {
     transform: scale(1.15);
 }
 
-.cardDetail {    
+.cardDetail {
     transition: all 0.3s;
 }
 
@@ -288,32 +229,24 @@ th {
     transform: scale(1.30);
 }
 
-/* Responsive Styles */
 @media screen and (min-width: 0px) and (max-width: 600px) {
-    main {
-        .carrusel {
-            height: 35dvh;
-            img {
-                height: 35dvh;
-            }
-        }
-        .card-link {
-            flex: 1 0 46%; 
-        }
+    .card-link {
+        flex: 1 0 46%;
     }
 }
+
 @media screen and (max-width: 600px) {
     footer .sponsors {
-        flex-direction: column; 
-        text-align: center; 
+        flex-direction: column;
+        text-align: center;
     }
-    
+
     footer .img-footer {
-        margin: 10px 0; 
+        margin: 10px 0;
     }
 
     footer .btn-link {
-        margin-top: 20px; 
+        margin-top: 20px;
     }
 }
 
@@ -345,8 +278,28 @@ body .efecto-show {
     width: 5dvh;
 }
 
-
-
 th {
     border-left: #414141 2px solid;
+}
+
+.cardDetail {
+    min-width: 300px !important;
+}
+
+.highlighted-text-container {
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    border-radius: 15px;
+    margin: 20px;
+    text-align: center;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.highlighted-text {
+    color: #ffffff;
+    font-size: 1.2em;
+    line-height: 1.5;
 }

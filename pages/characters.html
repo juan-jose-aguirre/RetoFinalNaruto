@@ -76,10 +76,10 @@
           <div class="w-100 mb-4 text-center mt-5">
             <h2 class="centered-text">Characters</h2>
             <div class="image-container">
-                <img class="w-50 efecto-show" src="/assets/divisor.png" alt="WelcomeToNarutoProyect" />
+                <img id='pergamino' class="w-50 efecto-show" src="/assets/divisor.png" alt="WelcomeToNarutoProyect" />
             </div>
         </div>
-        <div class="container mt-5 w-50">
+        <div class="container w-50">
             <div class="btn-group" data-toggle="buttons">
                 <input type="checkbox" id="jinchūriki" v-model="filtroBestias" @change="filtrarPersonajes">
                 <label for="jinchūriki">jinchūriki</label>
@@ -118,7 +118,7 @@
                 </ul>
             </nav>
 
-            <div class="row justify-content-center align-items-center">
+            <div class="row justify-content-center align-items-center highlighted-text-container">
                 <a :href="'detallePersonaje.html?id='+personaje.id" class="d-flex flex-column align-items-center text-center mb-4 card-link" v-for="personaje in personajesPaginados" :key="personaje.id">
                     <div class="cardClans shadow">
                         <img :src="personaje.images.length ? personaje.images[0] : '/assets/favicon.webp'" :alt="'Imagen de ' + personaje.name">

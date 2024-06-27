@@ -122,8 +122,6 @@ body::after {
     line-height: 1.5;
 }
 
-
-
 /* Botón Go Up */
 .GoUp {
     position: fixed;
@@ -191,48 +189,6 @@ footer .sponsors {
     flex-wrap: wrap; 
 }
 
-/* Estilos de la tabla */
-th {
-    background-color: #F57B18 !important;
-}
-.btn{
-    background-color: #F57B18;
-}
-
-.image {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 50%;
-    transition: all 0.3s;
-}
-
-.image:hover {
-    transform: scale(1.6);
-    border: 2px solid orange;
-}
-
-.boton {
-    transition: all 0.3s;
-}
-
-.boton:hover {
-    transform: scale(1.15);
-}
-
-.cardDetail {
-    transition: all 0.3s;
-}
-
-.cardDetail:hover img {
-    transform: scale(1.10);
-}
-
-.cardDetail:hover h5 {
-    transform: scale(1.30);
-}
-
-/* Estilos responsivos */
 @media screen and (min-width: 0px) and (max-width: 600px) {
     .navbar-nav {
         flex-direction: column;
@@ -264,4 +220,76 @@ th {
     footer .btn-link {
         margin-top: 20px; 
     }
+}
+
+/* Estilos de la tabla */
+.table-container {
+    margin: 20px 0;
+}
+
+.table {
+    background-color: #fff;
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table th,
+.table td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.table thead th {
+    background-color: #f57b18;
+    color: #fff;
+    font-weight: bold;
+    border-bottom: none;
+}
+
+
+
+
+
+
+
+
+
+.image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: all 0.3s;
+}
+
+.image:hover {
+    transform: scale(1.6);
+    border: 2px solid orange;
+}
+
+.boton {
+    transition: all 0.3s;
+    background-color: #f57b18;
+}
+
+.boton:hover {
+    transform: scale(1.15);
+    background-color: #fac193;
+}
+
+.cardDetail {
+    transition: all 0.3s;
+}
+
+.cardDetail:hover img {
+    transform: scale(1.10);
+}
+
+.cardDetail:hover h5 {
+    transform: scale(1.30);
 }

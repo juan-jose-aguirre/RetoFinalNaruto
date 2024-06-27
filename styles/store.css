@@ -1,4 +1,12 @@
 /* Otros estilos */
+@font-face {
+    font-family: 'Ninja Naruto';
+    src: url('/assets/NinjaNaruto.woff') format('woff2'),
+        url('assets/NinjaNaruto.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
 
 /* Animaciones */
 @keyframes show {
@@ -34,11 +42,16 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('https://wallpapercave.com/wp/wp7237677.jpg') no-repeat center center fixed;
+  
+    background-image: url('/assets/TESTfondo.webp') ;
+    background-repeat: no-repeat; 
+    background-position: center center; 
     background-size: cover;
-    opacity: 0.4;
-    z-index: -2;
+    opacity: 0.4; 
+    z-index: -2; 
 }
+
+
 
 body::after {
     content: "";
@@ -47,9 +60,11 @@ body::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(163, 131, 121, 0.4);
+    background: rgba(163, 131, 121, 0.4); 
     z-index: -1;
 }
+
+
 
 /* Estilos del header */
 #header {
@@ -102,6 +117,7 @@ body::after {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    font-family: 'Ninja Naruto', Roboto;
     color: rgb(43, 43, 43);
     z-index: 1;
 }
@@ -212,4 +228,8 @@ body .efecto-show {
 
 .img-github {
     width: 5dvh;
+}
+
+#pergamino{
+    min-height: 20vh;
 }
