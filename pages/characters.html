@@ -115,7 +115,11 @@
                     </li>
                 </ul>
             </nav>
-
+            <div v-if="personajesPaginados.length == 0" class="w-100">
+              <div class="alert alert-danger mt-3 d-block w-50 mx-auto" role="alert">
+                There were no coincidences!
+              </div>
+            </div>
             <div class="row justify-content-center align-items-center">
                 <a :href="'detallePersonaje.html?id='+personaje.id" class="d-flex flex-column align-items-center text-center mb-4 card-link" v-for="personaje in personajesPaginados" :key="personaje.id">
                     <div class="cardClans shadow">
