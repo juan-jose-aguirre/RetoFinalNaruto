@@ -77,11 +77,12 @@
           <div class="w-100 mb-4 text-center mt-5">
             <h2 class="centered-text d-none d-sm-block">Characters</h2>
             <div class="image-container">
-              <img class="img-fluid w-75 d-none d-sm-block efecto-show" src="/assets/divisor.png" alt="WelcomeToNarutoProyect">
-              <img src="/assets/tituloPersonajes.png" class="d-sm-none img-fluid w-75" alt="">
+
+                <img id='pergamino' class="w-50 efecto-show" src="/assets/divisor.png" alt="WelcomeToNarutoProyect" />
             </div>
-          </div>
-        <div class="container d-flex justify-content-center mt-5 w-50">
+        </div>
+        <div class="container w-50">
+
             <div class="btn-group" data-toggle="buttons">
                 <input type="checkbox" id="boruto" v-model="filtroBoruto" @change="filtrarPersonajes">
                 <label for="boruto">boruto</label>
@@ -115,12 +116,14 @@
                     </li>
                 </ul>
             </nav>
+
             <div v-if="personajesPaginados.length == 0" class="w-100">
               <div class="alert alert-danger mt-3 d-block w-50 mx-auto" role="alert">
                 There were no coincidences!
               </div>
             </div>
-            <div class="row justify-content-center align-items-center">
+            <div class="row justify-content-center align-items-center highlighted-text-container">
+
                 <a :href="'detallePersonaje.html?id='+personaje.id" class="d-flex flex-column align-items-center text-center mb-4 card-link" v-for="personaje in personajesPaginados" :key="personaje.id">
                     <div class="cardClans shadow">
                       <!-- <img :src="personaje.images.length ? personaje.images[0] : ''" :alt="'Imagen de ' + personaje.name"> -->

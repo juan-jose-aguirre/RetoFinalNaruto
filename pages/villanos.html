@@ -16,7 +16,7 @@
     rel="stylesheet" />
   <!-- Fin fuente de letra -->
   <link rel="shortcut icon" href="/assets/favicon.webp" type="image/x-icon" />
-  <link rel="stylesheet" href="/styles/test.css" />
+  <link rel="stylesheet" href="/styles\villains.css" />
   <title>Villanos</title>
 </head>
 
@@ -69,26 +69,27 @@
 
     <div class="d-flex flex-column align-items-center text-center">
 
-      <div class="highlighted-text-container text-center">
-
-        <p class="fw-bold highlighted-text">
+      <div class="w-100 mb-4 text-center mt-5">
+        <h2 class="centered-text">Villains</h2>
+        <div class="image-container">
+            <img id='pergamino' class="w-50 efecto-show" src="/assets/divisor.png" alt="WelcomeToNarutoProyect" />
+        </div>
+    </div>
+    <div class="d-flex flex-column align-items-center text-center mt-4">
+      <div class="highlighted-text-container">
+        <p class="highlighted-text">
           In Naruto, two notorious organizations, Akatsuki and Kara, stand out. Akatsuki, once seeking peace, turned
           rogue, capturing tailed beasts for world domination. Kara, from Boruto, uses advanced tech to harness Otsutsuki
-          power, posing new threats. Together, they highlight the evolving dangers to the ninja world.
-        </p>
-      </div>
-      <div class="w-100 mb-4 text-center mt-5">
-        <h2 class="centered-text d-none d-sm-block">Villains</h2>
-        <div class="image-container">
-          <img class="img-fluid w-75 d-none d-sm-block efecto-show" src="/assets/divisor.png" alt="WelcomeToNarutoProyect">
-          <img src="/assets/tituloVillanos.png" class="d-sm-none img-fluid w-75" alt="">
-        </div>
-      </div>
+          power, posing new threats. Together, they highlight the evolving dangers to the ninja world.        </p>
+    </div>
+  
+
 
     </div>
     <div class="container">
       <div class="d-flex flex-column flex-md-row py-4 gap-4  align-items-center justify-content-center">
         {{superFiltro}}
+
 
         <div>
           <form class="d-flex" role="search">
@@ -100,12 +101,25 @@
 
       </div>
     </div>
+
+
+
+
+
+
+
+    
+
+    
+
+
     <div v-if="kara.length == 0" class="w-100">
       <div class="alert alert-danger mt-3 d-block w-50 mx-auto" role="alert">
         There were no coincidences!
       </div>
     </div>
-      <div class="d-flex flex-column align-items-center flex-md-row flex-md-wrap justify-content-md-center">
+      <div class="d-flex flex-column align-items-center flex-md-row flex-md-wrap justify-content-md-center highlighted-text-container">
+
         
         <div v-for="element in kara" class="row">
           
@@ -123,6 +137,18 @@
           </a>
           
         </div>
+
+
+    
+
+        
+
+            <div class="GoUp">
+              <span class="go-up-text">Go Up</span>
+              <a href="#top">
+                <img src="/assets/GoUp.png" alt="Go Up Icon">
+              </a>
+            </div>
 
       </div>
   </main>
